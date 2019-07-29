@@ -26,9 +26,11 @@
             var td = event.target.parentNode;
             var tr = td.parentNode; // the row to be removed
             tr.parentNode.removeChild(tr);
-            
+
 
         }
+
+
     </script>
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
@@ -52,6 +54,7 @@
 
 
         <tbody>
+
         @foreach($products as $product)
 
             <tr>
@@ -61,12 +64,14 @@
                 <td>{{$product->company}}</td>
                 <td>{{$product->amount}}</td>
                 <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                <td><button type="button" value="Delete Row"  onclick="SomeDeleteRowFunction(this);" class="btn btn-danger   ">Sil</button></td>
+                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a></td>
 
             </tr>
         @endforeach
         </tbody>
 
+
     </table>
+
 @endsection
 

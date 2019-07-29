@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Owner;
+use App\Product;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -31,5 +32,8 @@ class OwnerController extends Controller
         return redirect('/owners');
 
     }
+
+
+
 
 }

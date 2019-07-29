@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/products/create");
 });
+
+
 
 
 
@@ -31,6 +33,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+
+
+
+
+
+
 // ürün route'ları
 
 Route::get('/products/create', 'ProductController@create');
@@ -38,6 +46,16 @@ Route::get('/products/create', 'ProductController@create');
 Route::post('/products', 'ProductController@store');
 
 Route::get('/products', 'ProductController@index');
+
+Route::get('/products/delete/{id}', function ($id)
+{
+    DB::table('products')->where('id', '=', $id)->delete();
+    return redirect('/products');
+});
+
+
+
+
 
 
 
@@ -50,6 +68,22 @@ Route::get('/owners/create', 'OwnerController@create');
 Route::post('/owners', 'OwnerController@store');
 
 Route::get('/owners', 'OwnerController@index');
+
+
+//tabloda delete'e tıklandığında database'ten record'u silmeye yarayan route
+
+Route::get('/owners/delete/{id}', function ($id)
+{
+    DB::table('owners')->where('id', '=', $id)->delete();
+    return redirect('/owners');
+});
+
+
+
+
+
+
+
 
 
 

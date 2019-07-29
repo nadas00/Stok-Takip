@@ -32,6 +32,10 @@
     </script>
 
 
+
+
+
+
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
@@ -55,8 +59,7 @@
 
                 <th scope="row">{{$owner->id}} </th>
                 <td>{{$owner->name}}</td>
-
-                <td><button type="button" value="Delete Row"  onclick="SomeDeleteRowFunction(this);" class="btn btn-danger   ">Sil</button></td>
+                <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
 
 {{--
 

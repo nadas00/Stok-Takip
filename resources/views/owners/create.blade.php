@@ -42,4 +42,8 @@
 
         <button type="submit" class="btn btn-primary">Kaydet</button>
     </form>
+
+   
+
+
 @endsection
