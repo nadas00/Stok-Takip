@@ -95,3 +95,19 @@ Route::get('/match', 'Match@index');
 
 
 
+// Owner Product one to many ilişkisi deneme route'ları
+
+Route::get('/denden', function () {
+   dd(\App\Owner::find(1)->product);
+});
+Route::get('/den', function () {
+   dd(\App\Product::find(1)->owner);
+});
+
+
+Route::get('/owners/delete/{id}', function ($id)
+{
+    DB::table('owners')->where('id', '=', $id)->delete();
+    return redirect('/owners');
+});
+

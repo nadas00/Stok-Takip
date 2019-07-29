@@ -20,7 +20,7 @@
 
     {{--  BU ALAN KULLANICI ADI EKLEMEK İÇİN BİR FORM İÇERİR --}}
 
-
+    <br><br>
     <h1>Yeni Kullanıcı Ekle</h1>
     <hr>
     <form action="/owners" method="post">

@@ -35,13 +35,15 @@
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
+
+    <br><br>
  <h1 id="productsSayfaBaslik">Kaydedilen Ürünler</h1><br><br>
 
 <div>
     <table class="table" id="productsBaslik">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Ürün adı</th>
             <th scope="col">Ürün detayları</th>
             <th scope="col">Marka</th>
@@ -74,21 +76,49 @@
 
         @endforeach
 
-
         </tbody>
-
 
     </table>
 
-
-
     <div id="ekleButonu">
-        <h1><i>Oppss...</i></h1>
-        <h2>Hiç Kayıtlı Ürün bulunmuyor.</h2>
-        <h5>Ürün eklemek için "Ürün Ekle" butonuna basın.</h5>
-        <br>
-        <a class="btn btn-primary btn-lg btn-block" href="/products/create" role="button">Ürün Ekle</a>
+
+
+
+
+        <section class="page_404">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 ">
+
+                        <div class="  text-center">
+                            <h1>Kayıt Yok</h1>
+                            <div class="four_zero_four_bg">
+
+
+
+                            </div>
+
+                            <div class="contant_box_404">
+                                <h3 class="h2">
+                                   Elimizde kayıtlı bir bilgi yok
+                                </h3>
+
+                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
+                                <br>
+                                <a href="/products/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </div>
+
+
 
     <script>
 
@@ -109,6 +139,39 @@
 
 
     </script>
+
+    <style>
+
+        .page_404{ padding:50px 0; background:#fff;
+        }
+
+        .page_404  img{ width:100%;}
+
+        .four_zero_four_bg{
+
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 400px;
+            background-position: center;
+        }
+
+
+        .four_zero_four_bg h1{
+            font-size:80px;
+        }
+
+        .four_zero_four_bg h3{
+            font-size:80px;
+        }
+
+        .link_404{
+            color: #fff!important;
+            padding: 10px 100px;
+            background: #39ac31;
+            margin: 20px 0;
+            display: inline-block;}
+
+        .contant_box_404{ margin-top:-50px;}
+    </style>
 
 
 

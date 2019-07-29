@@ -21,6 +21,7 @@
     {{--  BU ALAN ÜRÜN EKLEMEK İÇİN BİR FORM İÇERİR  --}}
 
 
+    <br><br>
     <h1>Yeni Ürün Ekle</h1>
     <hr>
     <form action="/products" method="post">
@@ -32,6 +33,7 @@
         <div class="form-group">
             <label for="description">Ürün Markası</label>
             <select class="form-control" name="company">
+                <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
                 <option>Apple</option>
                 <option>Google</option>
                 <option>Mi</option>

@@ -21,7 +21,7 @@
     {{--  BU ALAN EKLENMİŞ KULLANICILARI GÖSTEREN BİR TABLO İÇERİR --}}
 
 
-
+    <br><br>
 
 
     @if (Session::has('message'))
@@ -31,24 +31,18 @@
 
 <div id="ownersBaslik">
 
-    <table class="table" >
 
+    <table class="table" >
         <thead class="thead-dark">
         <tr>
-
-            <th scope="col">#</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">id</th>
             <th scope="col">Kullanıcı adı</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-
+            <th></th>
             <th scope="col">İşlem</th>
-
         </tr>
         </thead>
-
     </table>
+
 
 </div>
     <table class="table" id="ownersTable">
@@ -60,11 +54,9 @@
 
             <tr>
                 <th scope="row">{{$owner->id}} </th>
-                <td></td>
-                <td></td>
+
                 <td>{{$owner->name}}</td>
-                <td></td>
-                <td></td>
+
                 <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
             </tr>
 
@@ -77,11 +69,40 @@
     </table>
 
     <div id="OwnerEkleButonu">
-        <h1><i>Oppss...</i></h1>
-        <h2>Hiç Kayıtlı Kullanıcı bulunmuyor.</h2>
-        <h5>Kayıt eklemek için "Kullanıcı Ekle" butonuna basın.</h5>
-        <br>
-        <a class="btn btn-primary btn-lg btn-block" href="/owners/create" role="button">Kullanıcı Ekle</a>
+
+
+
+
+        <section class="page_404">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 ">
+
+                        <div class="  text-center">
+                            <h1>Kayıt Yok</h1>
+                            <div class="four_zero_four_bg">
+
+
+
+                            </div>
+
+                            <div class="contant_box_404">
+                                <h3 class="h2">
+                                    Elimizde kayıtlı bir bilgi yok
+                                </h3>
+
+                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
+                                <br>
+                                <a href="/owners/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
     </div>
 
@@ -103,5 +124,33 @@
         }
 
     </script>
+    <style>
+
+        {{-- yazı tipi istenirse .page_404 style'ına eklenir. --}}
+        .page_404{ padding:50px 0; background:#fff;
+        }
+
+        .page_404  img{ width:100%;}
+
+        .four_zero_four_bg{
+
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 400px;
+            background-position: center;
+        }
+
+
+        .four_zero_four_bg h1{
+            font-size:80px;
+        }
+
+        .four_zero_four_bg h3{
+            font-size:80px;
+        }
+
+
+
+        .contant_box_404{ margin-top:-50px;}
+    </style>
 
 @endsection

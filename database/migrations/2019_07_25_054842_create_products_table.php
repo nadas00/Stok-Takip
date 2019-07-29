@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->float('amount');
             $table->boolean('available');
+            $table->integer("owner_id")->unsigned();
             $table->timestamps();
         });
     }

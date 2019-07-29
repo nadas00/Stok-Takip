@@ -106,7 +106,7 @@ DÖKÜLEN NAVBAR ALANI
 <div class="container">
     <div class="row"></div>
     <div class="col-md-16">
-        <br><br>
+
         {{--            sayfa içeriği için--}}
         @yield("content")
     </div>
