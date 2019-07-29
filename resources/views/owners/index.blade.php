@@ -81,7 +81,7 @@
         <h2>Hiç Kayıtlı Kullanıcı bulunmuyor.</h2>
         <h5>Kayıt eklemek için "Kullanıcı Ekle" butonuna basın.</h5>
         <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Kullanıcı Ekle</button>
+        <a class="btn btn-primary btn-lg btn-block" href="/owners/create" role="button">Kullanıcı Ekle</a>
 
     </div>
 

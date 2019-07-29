@@ -87,7 +87,7 @@
         <h2>Hiç Kayıtlı Ürün bulunmuyor.</h2>
         <h5>Ürün eklemek için "Ürün Ekle" butonuna basın.</h5>
         <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Ürün Ekle</button>
+        <a class="btn btn-primary btn-lg btn-block" href="/products/create" role="button">Ürün Ekle</a>
     </div>
 
     <script>
