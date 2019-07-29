@@ -27,8 +27,11 @@
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
-    <h1>Kaydedilen Kullanıcılar</h1><br><br>
-    <table class="table">
+    <h1 id="ownerSayfaBaslik">Kaydedilen Kullanıcılar</h1><br><br>
+
+<div id="ownersBaslik">
+
+    <table class="table" >
 
         <thead class="thead-dark">
         <tr>
@@ -46,6 +49,8 @@
         </thead>
 
     </table>
+
+</div>
     <table class="table" id="ownersTable">
 
         <tbody>
@@ -71,12 +76,32 @@
 
     </table>
 
+    <div id="OwnerEkleButonu">
+        <h1><i>Oppss...</i></h1>
+        <h2>Hiç Kayıtlı Kullanıcı bulunmuyor.</h2>
+        <h5>Kayıt eklemek için "Kullanıcı Ekle" butonuna basın.</h5>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Kullanıcı Ekle</button>
+
+    </div>
+
     <script>
 
-
         if ($('#ownersTable tr').length == 0) {
-            alert("asd");
+            var x = document.getElementById("OwnerEkleButonu");
+            x.style.display = "visible";
+            var y = document.getElementById("ownersBaslik");
+            y.style.display = "none";
+            var z = document.getElementById("ownerSayfaBaslik");
+            z.style.display = "none";
+
+        }else{
+            var x = document.getElementById("OwnerEkleButonu");
+            x.style.display = "none";
+
+
         }
+
     </script>
 
 @endsection

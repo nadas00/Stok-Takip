@@ -4,7 +4,6 @@
 
 
 
-
 {{--  BU ALAN MATCH İÇİNDİR  ÜST KISIMDA ÜRÜN ALT KISIMDA KULLANICI BİLGİLERİNİ İÇEREN SEKME ÇIKAR --}}
 
         <!DOCTYPE html>

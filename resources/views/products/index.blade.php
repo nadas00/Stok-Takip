@@ -35,10 +35,10 @@
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
- <h1>Kaydedilen Ürünler</h1><br><br>
+ <h1 id="productsSayfaBaslik">Kaydedilen Ürünler</h1><br><br>
 
-
-    <table class="table">
+<div>
+    <table class="table" id="productsBaslik">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -53,6 +53,8 @@
         </thead>
 
     </table>
+</div>
+
     <table class="table" id="productsTable">
 
         <tbody>
@@ -81,6 +83,10 @@
 
 
     <div id="ekleButonu">
+        <h1><i>Oppss...</i></h1>
+        <h2>Hiç Kayıtlı Ürün bulunmuyor.</h2>
+        <h5>Ürün eklemek için "Ürün Ekle" butonuna basın.</h5>
+        <br>
         <button type="button" class="btn btn-primary btn-lg btn-block">Ürün Ekle</button>
     </div>
 
@@ -90,6 +96,10 @@
         if ($('#productsTable tr').length == 0) {
             var x = document.getElementById("ekleButonu");
             x.style.display = "visible";
+            var y = document.getElementById("productsBaslik");
+            y.style.display = "none";
+            var z = document.getElementById("productsSayfaBaslik");
+            z.style.display = "none";
 
         }else{
             var x = document.getElementById("ekleButonu");
