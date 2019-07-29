@@ -23,6 +23,7 @@
         <div class="form-group">
             <label for="sel1">Ürün (Seçiniz)</label>
             <select name="categories" id="categories" class="form-control" id="productselector">
+                <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
                 @foreach($products as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
@@ -34,6 +35,7 @@
         <div class="form-group">
             <label for="sel1">Stok Sahibi (Seçiniz)</label>
             <select name="categories" id="categories" class="form-control" id="ownerselector">
+                <option value="" selected disabled hidden>Kullanıcı ismi seçiniz</option>
                 @foreach($owners as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
