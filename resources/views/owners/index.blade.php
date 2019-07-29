@@ -20,18 +20,6 @@
 
     {{--  BU ALAN EKLENMİŞ KULLANICILARI GÖSTEREN BİR TABLO İÇERİR --}}
 
-    <script>
-        function SomeDeleteRowFunction() {
-            // event.target will be the input element.
-            var td = event.target.parentNode;
-            var tr = td.parentNode; // the row to be removed
-            tr.parentNode.removeChild(tr);
-
-        }
-
-    </script>
-
-
 
 
 
@@ -44,33 +32,51 @@
 
         <thead class="thead-dark">
         <tr>
+
             <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col">Kullanıcı adı</th>
             <th scope="col"></th>
+            <th scope="col"></th>
+
+            <th scope="col">İşlem</th>
+
         </tr>
         </thead>
 
+    </table>
+    <table class="table" id="ownersTable">
 
         <tbody>
 
         @foreach($owners as $owner)
 
+
             <tr>
-
                 <th scope="row">{{$owner->id}} </th>
+                <td></td>
+                <td></td>
                 <td>{{$owner->name}}</td>
+                <td></td>
+                <td></td>
                 <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
-
-{{--
-
-buton aktifleştirilecek
---}}
             </tr>
 
         @endforeach
 
         </tbody>
 
+
+
     </table>
+
+    <script>
+
+
+        if ($('#ownersTable tr').length == 0) {
+            alert("asd");
+        }
+    </script>
 
 @endsection

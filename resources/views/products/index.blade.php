@@ -47,11 +47,13 @@
             <th scope="col">Marka</th>
             <th scope="col">Stok miktarı</th>
             <th scope="col">Stok Aktifliği</th>
-            <th scope="col"></th>
+            <th scope="col">İşlem</th>
+
         </tr>
         </thead>
 
-
+    </table>
+    <table class="table" id="productsTable">
 
         <tbody>
 
@@ -67,11 +69,38 @@
                 <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a></td>
 
             </tr>
+
         @endforeach
+
+
         </tbody>
 
 
     </table>
+
+
+
+    <div id="ekleButonu">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Ürün Ekle</button>
+    </div>
+
+    <script>
+
+
+        if ($('#productsTable tr').length == 0) {
+            var x = document.getElementById("ekleButonu");
+            x.style.display = "visible";
+
+        }else{
+            var x = document.getElementById("ekleButonu");
+            x.style.display = "none";
+        }
+
+
+
+    </script>
+
+
 
 @endsection
 
