@@ -30,8 +30,14 @@
             <label for="title">Ürün Adı</label>
             <input type="text" class="form-control" id="productName"  name="name">
         </div>
+
+
         <div class="form-group">
             <label for="description">Ürün Markası</label>
+
+
+
+
             <select class="form-control" name="company">
                 <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
                 <option>Apple</option>
@@ -39,8 +45,15 @@
                 <option>Mi</option>
                 <option>Samsung</option>
             </select>
+
+
+
+
         </div>
         <div class="form-group">
+
+
+
             <label for="description">Stok Miktarı</label>
             <input type="text" class="form-control" id="productAmount" name="amount"/>
         </div>

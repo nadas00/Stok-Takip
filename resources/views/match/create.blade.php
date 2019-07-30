@@ -19,7 +19,10 @@
     <h2>Ürüne Stok Sahibi Ata</h2>
     <p>Ürün ve Stok Sahibi Seçiniz</p>
     <br>
-    <form>
+
+
+    <form id="selectorMain" method="POST">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="sel1">Ürün (Seçiniz)</label>
             <select name="productSelector"  class="form-control" id="productSelector" >
@@ -29,67 +32,20 @@
                 @endforeach
             </select>
         </div>
-
-    <br>
-
+        <br>
         <div class="form-group">
             <label for="sel1">Stok Sahibi (Seçiniz)</label>
             <select name="ownerSelector" class="form-control" id="ownerSelector">
-
-
                 <option value="" selected disabled hidden>Kullanıcı ismi seçiniz</option>
                 @foreach($owners as $item2)
                     <option value="{{ $item2->id }}">{{ $item2->name }}</option>
                 @endforeach
             </select>
-
-
         </div>
         <br>
-        <button class="btn btn-primary btn-block" id="matchbutton"></button>
-        <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
-
-        <script>
-            $("#ownerSelector").change(function () {
-                var den = ($(this).val());
-               alert(den)
-
-
-            });
-
-            document.getElementById("ownerSelector").onchange = function() {
-
-                document.getElementById("matchbutton").href = "http://ordernow/"+this.value+"/";
-
-            }
-        </script>
-
-
-
-
-
-
-
-
+        <a href="{{ url('/match/matched/'.$item->id."/".$item2->id)}}" class="btn btn-primary btn-block" role="button">Eşleştir</a>
     </form>
-
 </div>
-
-{{--
-
-<a class="btn btn-primary btn-block" role="button" id="matchbutton" >Atama Yap</a>
-href="deneme{{"/".$item->id}}{{"/".$item2->id}}"
-
-
-
-
---}}
-
-
-
-
-
-
 
 
 

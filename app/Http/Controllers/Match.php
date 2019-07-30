@@ -15,9 +15,35 @@ class Match extends Controller
         $owners = Owner::all();
         $products = Product::all();
 
-        return view('match.match',compact('owners',$owners,'products',$products));
+
+        return view('match.index',compact('owners',$owners,'products',$products));
 //,compact('owners',$owners,'products',$products)
     }
+
+
+    public function store(Request $request)
+    {
+
+        $validatedData = $request->validate([
+
+            'productSelector' => 'required',
+            'ownerSelector' => 'required',
+
+        ]);
+
+        Match::create($request->all());
+        return redirect('/match');
+
+    }
+
+    public function create()
+    {
+        $owners = Owner::all();
+        $products = Product::all();
+
+        return view('match.create',compact('owners',$owners,'products',$products));
+    }
+
 
 
 }

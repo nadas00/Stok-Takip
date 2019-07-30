@@ -88,10 +88,6 @@ Route::get('/owners/delete/{id}', function ($id)
 
 
 
-// Ürün'e kullanıcı atama route'u
-
-Route::get('/match', 'Match@index');
-
 
 
 
@@ -111,3 +107,20 @@ Route::get('/owners/delete/{id}', function ($id)
     return redirect('/owners');
 });
 
+
+// Ürün'e kullanıcı atama route'u
+
+Route::get('/match/create', 'Match@create');
+
+Route::post('/match/create', 'Match@store');
+
+Route::get('/match', 'Match@index');
+
+
+
+
+Route::get('/match/matched/{id}/{id2}', function ($id,$id2)
+{
+  DB::table('products')->where('id', '=', $id)->update(['owner_id' => $id2]);
+    return redirect('/match');
+});
