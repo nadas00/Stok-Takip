@@ -10,7 +10,8 @@
 <html lang="en">
 
 
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <body>
@@ -25,7 +26,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="sel1">Ürün (Seçiniz)</label>
-            <select name="productSelector"  class="form-control" id="productSelector" >
+            <select name="productSelector"  class="form-control" id="productSelector">
                 <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
                 @foreach($products as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -43,11 +44,28 @@
             </select>
         </div>
         <br>
-        <a href="{{ url('/match/matched/'.$item->id."/".$item2->id)}}" class="btn btn-primary btn-block" role="button">Eşleştir</a>
+        <a href="" id="submit" class="btn btn-primary btn-block" role="button">Eşleştir</a>
+
+{{--        <button id="submit" type="submit" value="Select"class="btn btn-success btn-block">Deneme </button>--}}
+
     </form>
 </div>
 
+<script>
+    $(document).ready(function() {
 
+        $("#submit").click(function(){
+
+            $("#productSelector option:selected").text();
+            $("#ownerSelector option:selected").text();
+            var den1 = $("#productSelector option:selected").text();
+            var den2 = $("#ownerSelector option:selected").text();
+            document.getElementById("submit").href = den1+den2 ;
+
+
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Owner;
 use App\Product;
 
+
 use Illuminate\Http\Request;
 
 class Match extends Controller
@@ -24,12 +25,17 @@ class Match extends Controller
     public function store(Request $request)
     {
 
+
         $validatedData = $request->validate([
 
             'productSelector' => 'required',
             'ownerSelector' => 'required',
 
         ]);
+
+
+
+
 
         Match::create($request->all());
         return redirect('/match');
