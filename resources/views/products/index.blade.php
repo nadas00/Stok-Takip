@@ -36,8 +36,8 @@
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-    <br><br>
- <h1 id="productsSayfaBaslik">Kaydedilen Ürünler</h1><br><br>
+
+ <h1 id="productsSayfaBaslik"><br>Kaydedilen Ürünler</h1><br>
 
 <div>
     <table class="table" id="productsBaslik">

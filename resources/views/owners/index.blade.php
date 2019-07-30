@@ -21,14 +21,13 @@
     {{--  BU ALAN EKLENMİŞ KULLANICILARI GÖSTEREN BİR TABLO İÇERİR --}}
 
 
-    <br><br>
 
 
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
-    <h1 id="ownerSayfaBaslik">Kaydedilen Kullanıcılar</h1><br><br>
-
+    <h1  id="ownerSayfaBaslik"><br>Kaydedilen Kullanıcılar</h1>
+    <br>
 <div id="ownersBaslik">
 
 
