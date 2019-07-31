@@ -45,26 +45,23 @@
         </div>
         <br>
         <a href="" id="submit" class="btn btn-primary btn-block" role="button">Eşleştir</a>
-
-{{--        <button id="submit" type="submit" value="Select"class="btn btn-success btn-block">Deneme </button>--}}
+        
 
     </form>
 </div>
 
 <script>
+
     $(document).ready(function() {
 
         $("#submit").click(function(){
 
-            $("#productSelector option:selected").text();
-            $("#ownerSelector option:selected").text();
-            var den1 = $("#productSelector option:selected").text();
-            var den2 = $("#ownerSelector option:selected").text();
-            document.getElementById("submit").href = den1+den2 ;
-
-
+           var productId = $("#productSelector option:selected").val();
+           var ownerId = $("#ownerSelector option:selected").val();
+           document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
         });
     });
+
 </script>
 
 </body>
