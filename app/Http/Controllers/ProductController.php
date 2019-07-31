@@ -13,17 +13,17 @@ class ProductController extends Controller
     }
 
 
-/*
- public function createtable()
-    {
-        $items = array(
-            'itemlist' =>  DB::table('products')->get()
-        );
+    /*
+     public function createtable()
+        {
+            $items = array(
+                'itemlist' =>  DB::table('products')->get()
+            );
 
-        return view('prices.create', $items);
-    }
-https://stackoverflow.com/questions/29508297/laravel-5-how-to-populate-select-box-from-database-with-id-value-and-name-value
- */
+            return view('prices.create', $items);
+        }
+    https://stackoverflow.com/questions/29508297/laravel-5-how-to-populate-select-box-from-database-with-id-value-and-name-value
+     */
 
     public function store(Request $request)
     {
@@ -36,20 +36,18 @@ https://stackoverflow.com/questions/29508297/laravel-5-how-to-populate-select-bo
             'description' => 'required',
 
 
-
         ]);
 
-       Product::create($request->all());
-       return redirect('/products');
+        Product::create($request->all());
+        return redirect('/products');
 
     }
-
 
 
     public function index()
     {
         $products = Product::all();
-        return view('products.index',compact('products',$products));
+        return view('products.index', compact('products', $products));
     }
 
 

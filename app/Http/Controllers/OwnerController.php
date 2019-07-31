@@ -12,13 +12,14 @@ class OwnerController extends Controller
     public function index()
     {
         $owners = Owner::all();
-        return view('owners.index',compact('owners',$owners));
+        return view('owners.index', compact('owners', $owners));
     }
 
     public function create()
     {
         return view('owners.create');
     }
+
     public function store(Request $request)
     {
 
@@ -32,8 +33,6 @@ class OwnerController extends Controller
         return redirect('/owners');
 
     }
-
-
 
 
 }

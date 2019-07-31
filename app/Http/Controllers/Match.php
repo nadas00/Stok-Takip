@@ -17,7 +17,7 @@ class Match extends Controller
         $products = Product::all();
 
 
-        return view('match.index',compact('owners',$owners,'products',$products));
+        return view('match.index', compact('owners', $owners, 'products', $products));
 //,compact('owners',$owners,'products',$products)
     }
 
@@ -34,9 +34,6 @@ class Match extends Controller
         ]);
 
 
-
-
-
         Match::create($request->all());
         return redirect('/match');
 
@@ -47,9 +44,8 @@ class Match extends Controller
         $owners = Owner::all();
         $products = Product::all();
 
-        return view('match.create',compact('owners',$owners,'products',$products));
+        return view('match.create', compact('owners', $owners, 'products', $products));
     }
-
 
 
 }

@@ -9,9 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -37,31 +43,31 @@
     @endif
 
 
- <h1 id="productsSayfaBaslik"><br>Kaydedilen Ürünler</h1><br>
+    <h1 id="productsSayfaBaslik"><br>Kaydedilen Ürünler</h1><br>
 
-<div>
-    <table class="table" id="productsBaslik">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Sıra</th>
-            <th scope="col">id</th>
-            <th scope="col">Ürün adı</th>
-            <th scope="col">Ürün detayları</th>
-            <th scope="col">Marka</th>
-            <th scope="col">Stok miktarı</th>
-            <th scope="col">Stok Aktifliği</th>
-            <th scope="col">İşlem</th>
+    <div>
+        <table class="table" id="productsBaslik">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sıra</th>
+                <th scope="col">id</th>
+                <th scope="col">Ürün adı</th>
+                <th scope="col">Ürün detayları</th>
+                <th scope="col">Marka</th>
+                <th scope="col">Stok miktarı</th>
+                <th scope="col">Stok Aktifliği</th>
+                <th scope="col">İşlem</th>
 
-        </tr>
-        </thead>
+            </tr>
+            </thead>
 
-    </table>
-</div>
+        </table>
+    </div>
 
     <table class="table" id="productsTable">
 
         <tbody>
-        <?php $sıra=1 ?>
+        <?php $sıra = 1 ?>
         @foreach($products as $product)
 
             <tr>
@@ -72,7 +78,8 @@
                 <td>{{$product->company}}</td>
                 <td>{{$product->amount}}</td>
                 <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a></td>
+                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
+                </td>
 
             </tr>
 
@@ -83,8 +90,6 @@
     </table>
 
     <div id="ekleButonu">
-
-
 
 
         <section class="page_404">
@@ -99,12 +104,11 @@
                             <div class="four_zero_four_bg">
 
 
-
                             </div>
 
                             <div class="contant_box_404">
                                 <h3 class="h2">
-                                   Elimizde kayıtlı bir bilgi yok
+                                    Elimizde kayıtlı bir bilgi yok
                                 </h3>
 
                                 <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
@@ -133,23 +137,26 @@
             var z = document.getElementById("productsSayfaBaslik");
             z.style.display = "none";
 
-        }else{
+        } else {
             var x = document.getElementById("ekleButonu");
             x.style.display = "none";
         }
-
 
 
     </script>
 
     <style>
 
-        .page_404{ padding:50px 0; background:#fff;
+        .page_404 {
+            padding: 50px 0;
+            background: #fff;
         }
 
-        .page_404  img{ width:100%;}
+        .page_404 img {
+            width: 100%;
+        }
 
-        .four_zero_four_bg{
+        .four_zero_four_bg {
 
             background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
             height: 400px;
@@ -157,22 +164,25 @@
         }
 
 
-        .four_zero_four_bg h1{
-            font-size:80px;
+        .four_zero_four_bg h1 {
+            font-size: 80px;
         }
 
-        .four_zero_four_bg h3{
-            font-size:80px;
+        .four_zero_four_bg h3 {
+            font-size: 80px;
         }
 
-        .link_404{
-            color: #fff!important;
+        .link_404 {
+            color: #fff !important;
             padding: 10px 100px;
             background: #39ac31;
             margin: 20px 0;
-            display: inline-block;}
+            display: inline-block;
+        }
 
-        .contant_box_404{ margin-top:-50px;}
+        .contant_box_404 {
+            margin-top: -50px;
+        }
     </style>
 
 

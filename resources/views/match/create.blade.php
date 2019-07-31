@@ -11,7 +11,7 @@
 
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="sweetalert2.all.min.js"></script>
 <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
@@ -19,7 +19,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
-
 
 
 <body>
@@ -35,7 +34,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="sel1">Ürün (Seçiniz)</label>
-            <select name="productSelector"  class="form-control" id="productSelector">
+            <select name="productSelector" class="form-control" id="productSelector">
                 <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
                 @foreach($products as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -61,11 +60,10 @@
 
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 
-
-        $("#submit").click(function(){
+        $("#submit").click(function () {
 
             event.preventDefault();
 
@@ -73,31 +71,45 @@
             var productId = $("#productSelector option:selected").val();
             var ownerId = $("#ownerSelector option:selected").val();
 
-
-            Swal.fire({
-                title: 'Başarılı',
-                text: $("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.",
-                type:"success",
-                confirmButtonText: "Tamam",
-        }).then(function() {
-                window.location = "/match/matched/"+productId+"/"+ownerId ;
-
-            });
-
-
-
-            // sweet alert olmadan kullanılacak olan alert
-            // alert($("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.")
+            if (productId == 0) {
+                Swal.fire({
+                    title: 'Ürün ismi giriniz',
+                    confirmButtonText: "Tamam",
+                    type: "warning",
+                })
+            } else if (ownerId == 0) {
+                Swal.fire({
+                    title: 'Stok sahibi ismi giriniz',
+                    confirmButtonText: "Tamam",
+                    type: "warning",
+                })
+            } else {
 
 
-           // sweet alert olmadan kullanılacak olan href
-            // document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
+                Swal.fire({
+                    title: 'Başarılı',
+                    text: $("#productSelector option:selected").text() + " ürünü " + $("#ownerSelector option:selected").text() + " kullanıcısının stoğuna eklenmiştir.",
+                    type: "success",
+                    confirmButtonText: "Tamam",
+                }).then(function () {
+                    window.location = "/match/matched/" + productId + "/" + ownerId;
+
+                });
+            }
+
+            /*
+            sweet alert olmadan kullanılacak olan alert
+            alert($("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.")
+
+
+            sweet alert olmadan kullanılacak olan href
+            document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
+            */
+
         });
     });
 
 </script>
-
-
 
 </body>
 </html>

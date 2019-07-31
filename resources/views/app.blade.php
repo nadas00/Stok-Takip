@@ -95,7 +95,7 @@ DÖKÜLEN NAVBAR ALANI
                 <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/match">Stok Sahibi Ata</a>
+                <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
             </li>
         </ul>
     </div>

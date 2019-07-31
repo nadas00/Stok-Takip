@@ -18,7 +18,24 @@
     </head>
 
 
-    <a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>
+{{--<a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>--}}
+    <br><br>
+    <div class="form-group">
+        <div>
+        <label for="sel1">Stok Sahibi (Seçiniz)</label>
+        <select name="ownerSelector" class="form-control" id="ownerSelector">
+            <option value="" selected disabled hidden>Kullanıcı ismi seçiniz</option>
+            @foreach($owners as $item2)
+                <option value="{{ $item2->id }}">{{ $item2->name }}</option>
+            @endforeach
+        </select>
+        </div>
+        <br>
+        <div>
+            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+        </div>
+    </div>
+
 
 @endsection
 
