@@ -71,15 +71,22 @@
             var productId = $("#productSelector option:selected").val();
             var ownerId = $("#ownerSelector option:selected").val();
 
-            if (productId == 0) {
+            if (productId == 0 && ownerId == 0){
                 Swal.fire({
-                    title: 'Ürün ismi giriniz',
+                    text: 'Ürün ve Stok Sahibi giriniz',
+                    confirmButtonText: "Tamam",
+                    type: "warning",
+                })
+
+            }else if (productId == 0) {
+                Swal.fire({
+                    text: 'Ürün ismi giriniz',
                     confirmButtonText: "Tamam",
                     type: "warning",
                 })
             } else if (ownerId == 0) {
                 Swal.fire({
-                    title: 'Stok sahibi ismi giriniz',
+                    text: 'Stok sahibi ismi giriniz',
                     confirmButtonText: "Tamam",
                     type: "warning",
                 })
@@ -88,7 +95,7 @@
 
                 Swal.fire({
                     title: 'Başarılı',
-                    text: $("#productSelector option:selected").text() + " ürünü " + $("#ownerSelector option:selected").text() + " kullanıcısının stoğuna eklenmiştir.",
+                    text: '"'+ $("#productSelector option:selected").text()+'"' + " ürünü " +'"'+ $("#ownerSelector option:selected").text()+'"' + " kullanıcısının stoğuna eklenmiştir",
                     type: "success",
                     confirmButtonText: "Tamam",
                 }).then(function () {
