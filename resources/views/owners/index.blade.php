@@ -34,6 +34,7 @@
     <table class="table" >
         <thead class="thead-dark">
         <tr>
+            <th scope="col">Sıra</th>
             <th scope="col">id</th>
             <th scope="col">Kullanıcı adı</th>
             <th></th>
@@ -47,12 +48,13 @@
     <table class="table" id="ownersTable">
 
         <tbody>
-
+        <?php $sıra=1 ?>
         @foreach($owners as $owner)
 
 
             <tr>
-                <th scope="row">{{$owner->id}} </th>
+                <th scope="row">{{$sıra++}} </th>
+                <td>{{$owner->id}} </td>
 
                 <td>{{$owner->name}}</td>
 

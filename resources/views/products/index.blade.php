@@ -43,6 +43,7 @@
     <table class="table" id="productsBaslik">
         <thead class="thead-dark">
         <tr>
+            <th scope="col">Sıra</th>
             <th scope="col">id</th>
             <th scope="col">Ürün adı</th>
             <th scope="col">Ürün detayları</th>
@@ -60,11 +61,12 @@
     <table class="table" id="productsTable">
 
         <tbody>
-
+        <?php $sıra=1 ?>
         @foreach($products as $product)
 
             <tr>
-                <th scope="row">{{$product->id}} </th>
+                <th scope="row">{{$sıra++}} </th>
+                <td>{{$product->id}} </td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->description}}</td>
                 <td>{{$product->company}}</td>

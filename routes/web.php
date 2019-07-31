@@ -114,7 +114,7 @@ Route::get('/match/create', 'Match@create');
 
 Route::post('/match/create', 'Match@store');
 
-//Route::get('/match', 'Match@index');
+Route::get('/match', 'Match@index');
 
 
 
@@ -122,5 +122,6 @@ Route::post('/match/create', 'Match@store');
 Route::get('/match/matched/{id}/{id2}', function ($id,$id2)
 {
   DB::table('products')->where('id', '=', $id)->update(['owner_id' => $id2]);
+  return redirect("/match");
 
 });

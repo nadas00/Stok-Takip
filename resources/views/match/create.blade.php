@@ -45,7 +45,7 @@
         </div>
         <br>
         <a href="" id="submit" class="btn btn-primary btn-block" role="button">Eşleştir</a>
-        
+
 
     </form>
 </div>
@@ -57,8 +57,11 @@
         $("#submit").click(function(){
 
            var productId = $("#productSelector option:selected").val();
+           alert($("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.")
            var ownerId = $("#ownerSelector option:selected").val();
            document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
+
+
         });
     });
 
