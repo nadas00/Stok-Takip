@@ -12,9 +12,18 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
 
 
 <body>
+
 <br> <br>
 <div class="container">
     <h2>Ürüne Stok Sahibi Ata</h2>
@@ -54,18 +63,41 @@
 
     $(document).ready(function() {
 
+
+
         $("#submit").click(function(){
 
-           var productId = $("#productSelector option:selected").val();
-           alert($("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.")
-           var ownerId = $("#ownerSelector option:selected").val();
-           document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
+            event.preventDefault();
 
 
+            var productId = $("#productSelector option:selected").val();
+            var ownerId = $("#ownerSelector option:selected").val();
+
+
+            Swal.fire({
+                title: 'Başarılı',
+                text: $("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.",
+                type:"success",
+                confirmButtonText: "Tamam",
+        }).then(function() {
+                window.location = "/match/matched/"+productId+"/"+ownerId ;
+
+            });
+
+
+
+            // sweet alert olmadan kullanılacak olan alert
+            // alert($("#productSelector option:selected").text()+" ürünü " + $("#ownerSelector option:selected").text() +" kullanıcısının stoğuna eklenmiştir.")
+
+
+           // sweet alert olmadan kullanılacak olan href
+            // document.getElementById("submit").href = "/match/matched/"+productId+"/"+ownerId ;
         });
     });
 
 </script>
+
+
 
 </body>
 </html>
