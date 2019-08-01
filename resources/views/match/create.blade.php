@@ -23,6 +23,8 @@
 
 <body>
 
+
+
 <br> <br>
 <div class="container">
     <h2>Ürüne Stok Sahibi Ata</h2>

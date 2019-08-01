@@ -18,12 +18,73 @@
     </head>
 
 
-{{--<a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>--}}
+
+
+
+
+
+
+    <h1 id="ownerSayfaBaslik"><br>Stok Sahipleri ve Ürünler</h1>
+    <br>
+    <div id="ownersBaslik">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+
+            <th scope="col">Stok Sahibi</th>
+            <th scope="col">Kullanıcı adı</th>
+            <th scope="col">İşlem</th>
+
+
+        </tr>
+        </thead>
+    </table>
+
+
+    </div>
+    <table class="table" id="ownersTable">
+
+        <tbody>
+
+   @foreach($products as $product)
+
+       {{--
+       aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
+       diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
+       --}}
+
+     @if(\App\Owner::find($product->owner_id))
+
+       <tr>
+
+           <td>{{\App\Owner::find($product->owner_id)->name}}</td>
+           <td>{{$product->name}}</td>
+           <td><a href="{{ url('/products/delete/'.\App\Owner::find($product->owner_id)->id.'/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı Kopar</a>
+       </tr>
+       @endif
+       @endforeach
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+
+{{--<a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>
+
+
     <br><br>
     <div class="form-group">
         <div>
         <label for="sel1">Stok Sahibi (Seçiniz)</label>
-        <select name="ownerSelector" class="form-control" id="ownerSelector">
+        <select name="ownerSelectorIndex" class="form-control" id="ownerSelectorIndex">
             <option value="" selected disabled hidden>Kullanıcı ismi seçiniz</option>
             @foreach($owners as $item2)
                 <option value="{{ $item2->id }}">{{ $item2->name }}</option>
@@ -32,10 +93,32 @@
         </div>
         <br>
         <div>
-            <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+            <input id="matchIndexInput" class="form-control" type="text" placeholder= " Seçim Yapınız "readonly>
+
         </div>
     </div>
 
+
+
+    <script>
+
+        $("#ownerSelectorIndex").on("change",function(){
+            var selectedOwner = $("#ownerSelectorIndex option:selected").val();
+
+            $("#matchIndexInput").val(selectedOwner);
+
+
+
+        });
+
+
+
+
+
+
+    </script>
+
+    --}}
 
 @endsection
 
