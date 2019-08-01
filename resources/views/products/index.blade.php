@@ -26,6 +26,44 @@
 
     {{--  BU ALAN EKLENMİŞ ÜRÜNLERİ GÖSTEREN BİR TABLO İÇERİR --}}
 
+
+
+    <div id="ekleButonu">
+
+
+        <section class="page_404">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 ">
+
+                        <div class="  text-center">
+                            <h1>Kayıt Yok</h1>
+                            <div class="four_zero_four_bg">
+
+
+                            </div>
+
+                            <div class="contant_box_404">
+                                <h3 class="h2">
+                                    Elimizde kayıtlı bir bilgi yok
+                                </h3>
+
+                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
+                                <br>
+                                <a href="/products/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
     <script>
         function SomeDeleteRowFunction() {
             // event.target will be the input element.
@@ -89,40 +127,7 @@
 
     </table>
 
-    <div id="ekleButonu">
 
-
-        <section class="page_404">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-sm-12 ">
-
-                        <div class="  text-center">
-                            <h1>Kayıt Yok</h1>
-                            <div class="four_zero_four_bg">
-
-
-                            </div>
-
-                            <div class="contant_box_404">
-                                <h3 class="h2">
-                                    Elimizde kayıtlı bir bilgi yok
-                                </h3>
-
-                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
-                                <br>
-                                <a href="/products/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-    </div>
 
 
 

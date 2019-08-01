@@ -18,64 +18,179 @@
     </head>
 
 
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
 
 
 
 
 
+        @foreach($products as $product)
 
-    <h1 id="ownerSayfaBaslik"><br>Stok Sahipleri ve Ürünler</h1>
-    <br>
-    <div id="ownersBaslik">
+            {{--
+            aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
+            diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
+            --}}
 
+            @if(\App\Owner::find($product->owner_id))
 
-
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-
-            <th scope="col">Stok Sahibi</th>
-            <th scope="col">Kullanıcı adı</th>
-            <th scope="col">İşlem</th>
-
-
-        </tr>
-        </thead>
-    </table>
+                <tbody>
+                <div id="matchIndexPage">
+                    <h1 id="ownerSayfaBaslik"><br>Stok Sahipleri ve Ürünler</h1>
+                    <br>
 
 
-    </div>
-    <table class="table" id="ownersTable">
 
-        <tbody>
+                    <table class="table" id="detachTable">
 
-   @foreach($products as $product)
 
-       {{--
-       aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
-       diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
-       --}}
 
-     @if(\App\Owner::find($product->owner_id))
+                        <thead class="thead-dark">
 
-       <tr>
 
-           <td>{{\App\Owner::find($product->owner_id)->name}}</td>
-           <td>{{$product->name}}</td>
-           <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı Kopar</a>
-       </tr>
-       @endif
-       @endforeach
+                        <div class="row">
 
+                            <th >Stok sahibi</th>
+                            <th >Ürün</th>
+                            <th >İşlem</th>
+                        </div>
+
+
+                        </thead>
+
+                <tr>
+
+                    <td>{{\App\Owner::find($product->owner_id)->name}}</td>
+                    <td>{{$product->name}}</td>
+                    <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-primary" role="button">Bağlantı Kopar</a>
+                </tr>
+
+                    </table>
+                </div>
         </tbody>
 
 
-    </table>
+
+@break
+            @else
+                <div id="ekleButonu">
+
+
+                    <section class="page_404">
+                        <div class="container">
+
+                            <div class="row">
+
+                                <div class="col-sm-12 ">
+
+                                    <div class="  text-center">
+                                        <h1>Kayıt Yok</h1>
+                                        <div class="four_zero_four_bg">
+
+
+                                        </div>
+
+                                        <div class="contant_box_404">
+                                            <h3 class="h2">
+                                                Elimizde kayıtlı bir bilgi yok
+                                            </h3>
+
+                                            <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
+                                            <br>
+                                            <a href="/match/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+                @break
+                @endif
+
+        @endforeach
 
 
 
 
+        <script>
+            window.onload = function() {
+                sortTable();
+            };
 
+
+            function sortTable() {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("detachTable");
+                switching = true;
+                /*Make a loop that will continue until
+                no switching has been done:*/
+                while (switching) {
+                    //start by saying: no switching is done:
+                    switching = false;
+                    rows = table.rows;
+                    /*Loop through all table rows (except the
+                    first, which contains table headers):*/
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        //start by saying there should be no switching:
+                        shouldSwitch = false;
+                        /*Get the two elements you want to compare,
+                        one from current row and one from the next:*/
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i + 1].getElementsByTagName("TD")[0];
+                        //check if the two rows should switch place:
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    if (shouldSwitch) {
+                        /*If a switch has been marked, make the switch
+                        and mark that a switch has been done:*/
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+        </script>
+
+    <style>
+
+        {{-- yazı tipi istenirse .page_404 style'ına eklenir. --}}
+        .page_404 {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        .page_404 img {
+            width: 100%;
+        }
+
+        .four_zero_four_bg {
+
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 400px;
+            background-position: center;
+        }
+
+
+        .four_zero_four_bg h1 {
+            font-size: 80px;
+        }
+
+        .four_zero_four_bg h3 {
+            font-size: 80px;
+        }
+
+
+        .contant_box_404 {
+            margin-top: -50px;
+        }
+    </style>
 
 {{--<a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>
 

@@ -26,7 +26,40 @@
 
     {{--  BU ALAN EKLENMİŞ KULLANICILARI GÖSTEREN BİR TABLO İÇERİR --}}
 
+    <div id="OwnerEkleButonu">
 
+
+        <section class="page_404">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 ">
+
+                        <div class="  text-center">
+                            <h1>Kayıt Yok</h1>
+                            <div class="four_zero_four_bg">
+
+
+                            </div>
+
+                            <div class="contant_box_404">
+                                <h3 class="h2">
+                                    Elimizde kayıtlı bir bilgi yok
+                                </h3>
+
+                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
+                                <br>
+                                <a href="/owners/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
 
 
     @if (Session::has('message'))
@@ -74,40 +107,7 @@
 
     </table>
 
-    <div id="OwnerEkleButonu">
 
-
-        <section class="page_404">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-sm-12 ">
-
-                        <div class="  text-center">
-                            <h1>Kayıt Yok</h1>
-                            <div class="four_zero_four_bg">
-
-
-                            </div>
-
-                            <div class="contant_box_404">
-                                <h3 class="h2">
-                                    Elimizde kayıtlı bir bilgi yok
-                                </h3>
-
-                                <p>Kayıt Eklemek için "Kayıt Ekle" Butonuna Tıkla</p>
-                                <br>
-                                <a href="/owners/create" class="btn btn-success btn-block"> Kayıt Ekle </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-    </div>
 
     <script>
 

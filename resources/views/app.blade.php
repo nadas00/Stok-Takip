@@ -97,6 +97,9 @@ DÖKÜLEN NAVBAR ALANI
             <li class="nav-item">
                 <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/match">İlişkileri Göster</a>
+            </li>
         </ul>
     </div>
 
