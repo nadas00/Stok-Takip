@@ -62,7 +62,7 @@
 
            <td>{{\App\Owner::find($product->owner_id)->name}}</td>
            <td>{{$product->name}}</td>
-           <td><a href="{{ url('/products/delete/'.\App\Owner::find($product->owner_id)->id.'/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı Kopar</a>
+           <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı Kopar</a>
        </tr>
        @endif
        @endforeach
