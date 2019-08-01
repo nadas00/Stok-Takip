@@ -90,6 +90,7 @@ Route::get('/match/matched/{id}/{id2}', function ($id, $id2) {
 });
 
 
+
 Route::get('/match/delete/{id}', function ($id) {
     DB::table('products')->where('id', '=', $id)->update(['owner_id' => null]);
     return redirect("/match");
