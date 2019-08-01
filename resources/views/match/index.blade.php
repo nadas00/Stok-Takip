@@ -19,6 +19,40 @@
 
 
 
+    <div id="ekleButonu">
+
+
+        <section class="page_404">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-12 ">
+
+                        <div class="  text-center">
+                            <h1>Eşleşmiş Kayıt Yok</h1>
+                            <div class="four_zero_four_bg">
+
+
+                            </div>
+
+                            <div class="contant_box_404">
+                                <h3 class="h2">
+                                    Gösterecek bir şey bulamadık
+                                </h3>
+
+                                <p>Eşleştirme Eklemek için "Eşleştirme Ekle" Butonuna Tıkla</p>
+                                <br>
+                                <a href="/match/create" class="btn btn-success btn-block"> Eşleştirme Sayfasına Git </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
 
 
 
@@ -30,7 +64,7 @@
 
 
 
-    <table class="table" id="detachTable">
+    <table class="table" id="detachTableTop">
         <thead class="thead-dark">
         <tr>
 
@@ -44,9 +78,9 @@
 
 
 
+</table>
 
-
-
+<table class="table" id="detachTable">
         <tbody>
 
         @foreach($products as $product)
@@ -63,6 +97,7 @@
                     <td>{{\App\Owner::find($product->owner_id)->name}}</td>
                     <td>{{$product->name}}</td>
                     <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı Kopar</a>
+
                 </tr>
             @endif
         @endforeach
@@ -117,8 +152,65 @@
     </script>
 
 
+    <script>
 
 
+        if ($('#detachTable tr').length == 0) {
+            var x = document.getElementById("detachTableTop");
+            x.style.display = "none";
+            var y = document.getElementById("ownerSayfaBaslik");
+            y.style.display = "none";
+            var z = document.getElementById("ekleButonu");
+            z.style.display = "visible";
+
+        } else {
+            var z = document.getElementById("ekleButonu");
+            z.style.display = "none";
+
+        }
+
+
+    </script>
+
+    <style>
+
+        .page_404 {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        .page_404 img {
+            width: 100%;
+        }
+
+        .four_zero_four_bg {
+
+            background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+            height: 400px;
+            background-position: center;
+        }
+
+
+        .four_zero_four_bg h1 {
+            font-size: 80px;
+        }
+
+        .four_zero_four_bg h3 {
+            font-size: 80px;
+        }
+
+        .link_404 {
+            color: #fff !important;
+            padding: 10px 100px;
+            background: #39ac31;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        .contant_box_404 {
+            margin-top: -50px;
+        }
+    </style>
 
 
     {{--<a href="{{ url('/match/create')}}" class="btn btn-success" role="button">Git</a>
