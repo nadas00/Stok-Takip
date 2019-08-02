@@ -29,11 +29,11 @@ class ProductController extends Controller
     {
 
         $validatedData = $request->validate([
-            'name' => 'required|unique:products',
-            'amount' => 'required|numeric',
+            'name' => 'required|unique:products|max:50',
+            'amount' => 'required|numeric|max:1000',
             'company' => 'required',
             'available' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:500',
 
 
         ]);

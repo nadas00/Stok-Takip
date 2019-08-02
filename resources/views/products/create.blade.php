@@ -34,7 +34,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="title">Ürün Adı</label>
-            <input type="text" class="form-control" id="productName" name="name">
+            <input class="form-control" id="productName" name="name">
         </div>
 
 

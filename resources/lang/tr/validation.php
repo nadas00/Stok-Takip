@@ -154,6 +154,11 @@ return [
         'description' => [
             'required' => 'description gir be ya',
         ],
+        'max' => [
+
+            'text'  => 'HÖST ULAN ',
+
+        ],
     ],
 
 

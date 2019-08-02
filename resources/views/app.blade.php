@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +15,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
 </head>
 
 <body>
@@ -101,9 +110,18 @@ DÖKÜLEN NAVBAR ALANI
                 <a class="nav-link" href="/match">İlişkileri Göster</a>
             </li>
         </ul>
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:admin@staj.site?Subject=staj.site%20hakkında">Bizimle İletişime Geçin</a>
+            </li>
+
+        </ul>
+
     </div>
 
 </nav>
+
+
 
 
 <div class="container">
@@ -113,10 +131,42 @@ DÖKÜLEN NAVBAR ALANI
         {{--            sayfa içeriği için--}}
         @yield("content")
     </div>
+
 </div>
+
 </div>
+
 
 {{--           js için--}}
 @yield("footer")
+
 </body>
+<div>
+    <br>
+</div>
+<div class="footer">
+
+<p class="ftrtxt">Bu site Hasan Çiftçi tarafından, staj projesinin online ortamda testinin gerçekleştirilebilmesi amacıyla yayınlanmıştır.
+    <br>
+Girilen kayıtlar, bu siteye ulaşabilen herhangi bir ziyaretçi tarafından kaydedilmiş olabilir.</p>
+</div>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+        color:  #171a1d;
+        text-align: center;
+
+    }
+    .ftrtxt{
+        font-weight: 100;
+    }
+</style>
 </html>
+
+
+
