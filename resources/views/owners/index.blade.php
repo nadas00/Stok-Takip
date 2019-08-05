@@ -1,4 +1,8 @@
 @extends('app')
+<?php
+use Jenssegers\Agent\Agent;
+$agent = new Agent();
+?>
 
 @section('content')
 

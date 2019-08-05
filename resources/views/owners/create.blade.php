@@ -1,5 +1,10 @@
 @extends('app')
 
+<?php
+use Jenssegers\Agent\Agent;
+$agent = new Agent();
+?>
+
 @section('content')
 
 
@@ -20,28 +25,61 @@
 
     {{--  BU ALAN KULLANICI ADI EKLEMEK İÇİN BİR FORM İÇERİR --}}
 
-    <br><br>
-    <h1>Yeni Kullanıcı Ekle</h1>
-    <hr>
-    <form action="/owners" method="post">
-        {{ csrf_field() }}
-        <div class="form-group">
-            <label for="title">Kullanıcı Adı</label>
-            <input type="text" class="form-control" id="ownerName"  name="name">
-        </div>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+
+    @if($agent->isMobile())
+
+
+        <h1>Yeni Kullanıcı Ekle Mobil</h1>
+        <hr>
+        <form action="/owners" method="post">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label for="title">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="ownerName"  name="name">
             </div>
-        @endif
 
-        <button type="submit" class="btn btn-primary">Kaydet</button>
-    </form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+
+    @else
+
+        <br><br>
+        <h1>Yeni Kullanıcı Ekle</h1>
+        <hr>
+        <form action="/owners" method="post">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label for="title">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="ownerName"  name="name">
+            </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+
+    @endif
+
+
 
    
 

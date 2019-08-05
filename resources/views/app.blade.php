@@ -1,5 +1,10 @@
+
+
 <!DOCTYPE html>
+
 <html lang="en">
+
+
 <head>
 
 
@@ -15,15 +20,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-
-
-
-
 </head>
 
-<body>
+
 
 {{-------------------------------------------------------------------------------------------------------------}}
 
@@ -78,10 +77,14 @@ DÖKÜLEN NAVBAR ALANI
 {{-------------------------------------------------------------------------------------------------------------}}
 
 
+{{--
+
+gerçek navbar daha sonra açılacak
+
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Ürünler</a>
+    <a class="navbar-brand" id="navName" href="#">Ürünler</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -119,51 +122,69 @@ DÖKÜLEN NAVBAR ALANI
 
     </div>
 
-</nav>
+</nav>--}}
 
 
 
-
-<div class="container">
+<div style="margin-bottom: 100px; align-content: center" class="container">
     <div class="row"></div>
     <div class="col-md-16">
 
         {{--            sayfa içeriği için--}}
         @yield("content")
+
+
     </div>
 
 </div>
 
 </div>
 
+<div >
+    {{--footer içerik arası boşluk için--}}
+
+</div>
+
 
 {{--           js için--}}
-@yield("footer")
+<div>
+
+    @yield("footer")
+    <div class="bg-dark" id="footer"><a style="font-weight: lighter">Hasan Çiftçi - staj.site &copy; </a><p style="font-weight: normal">Bu site bir deneme projesidir.</p></div>
+</div>
+
 
 </body>
-<div>
-    <br>
-</div>
-<div class="footer">
 
-<p class="ftrtxt">Bu site Hasan Çiftçi tarafından, staj projesinin online ortamda testinin gerçekleştirilebilmesi amacıyla yayınlanmıştır.
-    <br>
-Girilen kayıtlar, bu siteye ulaşabilen herhangi bir ziyaretçi tarafından kaydedilmiş olabilir.</p>
-</div>
+
 
 <style>
-    .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+    #footer {
         width: 100%;
-        background-color: transparent;
-        color:  #171a1d;
-        text-align: center;
+        height: 60px;
 
+        text-align: center;
+        padding: 10px;
+        margin-top: 50px;
+
+        color: rgb(230, 230, 220);
+        position: absolute;
+        bottom: 0px;
     }
-    .ftrtxt{
-        font-weight: 100;
+    html {
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    body {
+
+        overflow-x: hidden;
+        margin: 0px;
+        position: relative;
+        min-height: 100%;
+        height: auto;
     }
 </style>
 </html>
