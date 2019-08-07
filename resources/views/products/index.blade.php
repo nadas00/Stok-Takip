@@ -65,10 +65,10 @@ $agent = new Agent();
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-<div class="topic">
+<div class="topic" id="topic">
     <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
 </div>
-<div class="content">
+<div class="content" id="content">
     <div>
         <table class="table" id="productsBaslik">
             <thead class="thead-dark">
@@ -127,6 +127,10 @@ $agent = new Agent();
             y.style.display = "none";
             var z = document.getElementById("productsSayfaBaslik");
             z.style.display = "none";
+            var z2 = document.getElementById("topic");
+            z2.style.display = "none";
+            var z3 = document.getElementById("content");
+            z3.style.display = "none";
 
         } else {
             var x = document.getElementById("ekleButonu");

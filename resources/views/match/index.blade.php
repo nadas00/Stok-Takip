@@ -50,11 +50,11 @@ $agent = new Agent();
 
 
 
-<div class="topic">
+<div class="topic" id="topic">
     <h3 id="ownerSayfaBaslik">Stok Sahipleri ve Ürünler</h3>
 </div>
 
-<div class="content">
+<div class="content" id="content">
 
     <table class="table" id="detachTableTop">
         <thead class="thead-dark">
@@ -151,6 +151,10 @@ $agent = new Agent();
             y.style.display = "none";
             var z = document.getElementById("ekleButonu");
             z.style.display = "visible";
+            var z2 = document.getElementById("topic");
+            z2.style.display = "none";
+            var z3 = document.getElementById("content");
+            z3.style.display = "none";
 
         } else {
             var z = document.getElementById("ekleButonu");

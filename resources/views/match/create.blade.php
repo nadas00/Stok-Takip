@@ -47,7 +47,7 @@ $agent = new Agent();
                     @endforeach
                 </select>
             </div>
-            <br>
+
             <div class="form-group">
                 <label for="sel1">Stok Sahibi (Seçiniz)</label>
                 <select name="ownerSelector" class="form-control" id="ownerSelector">
@@ -57,7 +57,7 @@ $agent = new Agent();
                     @endforeach
                 </select>
             </div>
-            <br>
+
             <a href="" id="submit" class="btn btn-primary btn-block" role="button">Eşleştir</a>
 
 
@@ -148,6 +148,8 @@ $agent = new Agent();
             border-bottom-style: dashed;
 
             text-align: center;
+            padding-top: 20px;
+            padding-bottom: 10px;
 
 
         }
