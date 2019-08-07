@@ -1,15 +1,13 @@
-
-
 <!DOCTYPE html>
 
 <html lang="en">
-
-
+<div>
+@yield("header")
 <head>
 
 
 
-    <title>Bootstrap Example</title>
+    <title>Staj.Site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,78 +15,22 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-
-
-{{-------------------------------------------------------------------------------------------------------------}}
-
-{{-------------------------------------------------------------------------------------------------------------}}
-{{--
-
-DÖKÜLEN NAVBAR ALANI
-
-
-
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Logo</a>
-    <ul class="navbar-nav">
-
-
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Ekle
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="/products/create">Ürün</a>
-                <a class="dropdown-item" href="/owners/create">Srok Sahibi</a>
-
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-               Görüntüle
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="/products">Ürün</a>
-                <a class="dropdown-item" href="/owners">Stok Sahibi</a>
-
-            </div>
-        </li>
-        <!-- Links -->
-
-        <li class="nav-item">
-            <a class="nav-link" href="/match">Stok Sahibi Ata</a>
-        </li>
-
-    </ul>
-</nav>
---}}
-
-
-{{-------------------------------------------------------------------------------------------------------------}}
-{{-------------------------------------------------------------------------------------------------------------}}
-
-
-{{--
-
-gerçek navbar daha sonra açılacak
-
-
 <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
     <!-- Brand -->
-    <a class="navbar-brand" id="navName" href="#">Ürünler</a>
+    <a class="navbar-brand" id="navName" href="#">asdad</a>
 
     <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+
+
+
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
     </button>
 
     <!-- Navbar links -->
@@ -122,8 +64,95 @@ gerçek navbar daha sonra açılacak
 
     </div>
 
-</nav>--}}
+</nav>
 
+    <style>
+
+        .icon-bar {
+            width: 22px;
+            height: 2px;
+            background-color: #B6B6B6;
+            display: block;
+            transition: all 0.2s;
+            margin-top: 4px
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent !important;
+
+        }
+        .navbar-toggler .top-bar {
+            transform: rotate(45deg);
+            transform-origin: 10% 10%;
+        }
+
+        .navbar-toggler .middle-bar {
+            opacity: 0;
+        }
+
+        .navbar-toggler .bottom-bar {
+            transform: rotate(-45deg);
+            transform-origin: 10% 90%;
+        }
+
+        .navbar-toggler.collapsed .top-bar {
+            transform: rotate(0);
+        }
+
+        .navbar-toggler.collapsed .middle-bar {
+            opacity: 1;
+        }
+
+        .navbar-toggler.collapsed .bottom-bar {
+            transform: rotate(0);
+        }
+    </style>
+
+
+@if($agent->isMobile())
+    <br>
+    <script>
+        window.onload = function () {
+
+            setnav();
+
+        };
+
+
+        function setnav(){
+
+            var z = document.getElementById("navName");
+            z.innerHTML="Stok Takip Mobil";
+        }
+
+    </script>
+
+
+@else
+    <br>
+    <script>
+
+
+        window.onload = function () {
+
+            setnav();
+
+        };
+
+
+        function setnav(){
+            var t = document.getElementById("navName");
+            t.innerHTML="Stok Takip";
+        }
+
+
+    </script>
+@endif
+
+
+
+</div>
 
 
 <div style="margin-bottom: 100px; align-content: center" class="container">
@@ -179,15 +208,17 @@ gerçek navbar daha sonra açılacak
         overflow-y: scroll;
     }
     body {
+        background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
 
+      background-color: gray(131234);
         overflow-x: hidden;
         margin: 0px;
         position: relative;
         min-height: 100%;
         height: auto;
     }
+    .navbar{
+        padding: 25px;
+    }
 </style>
 </html>
-
-
-
