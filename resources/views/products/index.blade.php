@@ -65,49 +65,18 @@ $agent = new Agent();
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-<div class="topic" id="topic">
-    <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
-</div>
-<div class="content" id="content">
-
-
-
-
-
-
-
-    <table style="table-layout:fixed; width:98%; word-wrap:break-word"  class="table" id="productsTable">
-
-
-
-        <?php $sıra = 1 ?>
-        @foreach($products as $product)
-
-            <thead class="thead-dark">
-
-            <tr>
-                <th scope="col">Sıra</th>
-                <th scope="col">id</th>
-                <th scope="col">Ürün adı</th>
-                <th scope="col">Ürün detayları</th>
-
-
-            </tr>
-            </thead>
-
-
-
-            <tr>
-                <th scope="row">{{$sıra++}} </th>
-                <td>{{$product->id}} </td>
-                <td>{{$product->name}}</td>
-                <td>{{$product->description}}</td>
-
-            </tr>
-
-                <thead class="thead-light">
+    <div class="topic" id="topic">
+        <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
+    </div>
+    <div class="content" id="content">
+        <div>
+            <table class="table" id="productsBaslik">
+                <thead class="thead-dark">
                 <tr>
-
+                    <th scope="col">Sıra</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Ürün adı</th>
+                    <th scope="col">Ürün detayları</th>
                     <th scope="col">Marka</th>
                     <th scope="col">Stok miktarı</th>
                     <th scope="col">Stok Aktifliği</th>
@@ -116,37 +85,36 @@ $agent = new Agent();
                 </tr>
                 </thead>
 
+            </table>
+        </div>
+
+        <table class="table" id="productsTable">
+
+            <tbody>
+            <?php $sıra = 1 ?>
+            @foreach($products as $product)
+
+                <tr>
+                    <th scope="row">{{$sıra++}} </th>
+                    <td>{{$product->id}} </td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->description}}</td>
+                    <td>{{$product->company}}</td>
+                    <td>{{$product->amount}}</td>
+                    <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                    <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
+                    </td>
+
+                </tr>
+
+            @endforeach
+
+            </tbody>
+
+        </table>
 
 
-
-            <tr>
-                <td>{{$product->company}}</td>
-                <td>{{$product->amount}}</td>
-                <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a></td>
-
-
-            </tr>
-
-
-        @endforeach
-
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
+    </div>
 
 
     <script>

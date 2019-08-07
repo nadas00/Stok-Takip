@@ -50,55 +50,55 @@ $agent = new Agent();
 
 
 
-<div class="topic" id="topic">
-    <h3 id="ownerSayfaBaslik">Stok Sahipleri ve Ürünler</h3>
-</div>
+    <div class="topic" id="topic">
+        <h3 id="ownerSayfaBaslik">Stok Sahipleri ve Ürünler</h3>
+    </div>
 
-<div class="content" id="content">
+    <div class="content" id="content">
 
-    <table class="table" id="detachTableTop">
-        <thead class="thead-dark">
-        <tr>
+        <table class="table" id="detachTableTop">
+            <thead class="thead-dark">
+            <tr>
 
-            <th scope="col">Stok Sahibi</th>
-            <th scope="col">Kullanıcı adı</th>
-            <th scope="col">İşlem</th>
-
-
-        </tr>
-        </thead>
+                <th scope="col">Stok Sahibi</th>
+                <th scope="col">Kullanıcı adı</th>
+                <th scope="col">İşlem</th>
 
 
-    </table>
-
-    <table class="table" id="detachTable">
-        <tbody>
-
-        @foreach($products as $product)
-
-            {{--
-            aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
-            diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
-            --}}
-
-            @if(\App\Owner::find($product->owner_id))
-
-                <tr>
-
-                    <td>{{\App\Owner::find($product->owner_id)->name}}</td>
-                    <td>{{$product->name}}</td>
-                    <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı
-                            Kopar</a>
-
-                </tr>
-            @endif
-        @endforeach
-
-        </tbody>
+            </tr>
+            </thead>
 
 
-    </table>
-</div>
+        </table>
+
+        <table class="table" id="detachTable">
+            <tbody>
+
+            @foreach($products as $product)
+
+                {{--
+                aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
+                diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
+                --}}
+
+                @if(\App\Owner::find($product->owner_id))
+
+                    <tr>
+
+                        <td>{{\App\Owner::find($product->owner_id)->name}}</td>
+                        <td>{{$product->name}}</td>
+                        <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı
+                                Kopar</a>
+
+                    </tr>
+                @endif
+            @endforeach
+
+            </tbody>
+
+
+        </table>
+    </div>
 
 
     <script>

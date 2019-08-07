@@ -54,49 +54,48 @@ $agent = new Agent();
     @endif
 
     <div class="topic" id="topic">
-    <h3 id="ownerSayfaBaslik">Kaydedilen Kullanıcılar</h3>
+        <h3 id="ownerSayfaBaslik">Kaydedilen Kullanıcılar</h3>
     </div>
     <div class="content" id="content">
-    <div id="ownersBaslik">
+        <div id="ownersBaslik">
 
 
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">Sıra</th>
-                <th scope="col">id</th>
-                <th scope="col">Kullanıcı adı</th>
-                <th></th>
-                <th scope="col">İşlem</th>
-            </tr>
-            </thead>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Sıra</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Kullanıcı adı</th>
+                    <th></th>
+                    <th scope="col">İşlem</th>
+                </tr>
+                </thead>
+            </table>
+
+
+        </div>
+        <table class="table" id="ownersTable">
+
+            <tbody>
+            <?php $sıra = 1 ?>
+            @foreach($owners as $owner)
+
+
+                <tr>
+                    <th scope="row">{{$sıra++}} </th>
+                    <td>{{$owner->id}} </td>
+
+                    <td>{{$owner->name}}</td>
+
+                    <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
+                </tr>
+
+            @endforeach
+
+            </tbody>
+
+
         </table>
-
-
-    </div>
-
-    <table style="table-layout:fixed; width:98%; word-wrap:break-word" class="table" id="ownersTable">
-
-        <tbody>
-        <?php $sıra = 1 ?>
-        @foreach($owners as $owner)
-
-
-            <tr>
-                <th>{{$sıra++}} </th>
-                <td>{{$owner->id}} </td>
-
-                <td>{{$owner->name}}</td>
-
-                <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
-            </tr>
-
-        @endforeach
-
-        </tbody>
-
-
-    </table>
 
     </div>
 
@@ -109,9 +108,9 @@ $agent = new Agent();
             y.style.display = "none";
             var z = document.getElementById("ownerSayfaBaslik");
             z.style.display = "none";
-             var z2 = document.getElementById("topic");
+            var z2 = document.getElementById("topic");
             z2.style.display = "none";
-             var z3 = document.getElementById("content");
+            var z3 = document.getElementById("content");
             z3.style.display = "none";
 
         } else {

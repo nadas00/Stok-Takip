@@ -26,13 +26,13 @@ $agent = new Agent();
 
 
 
-<div class="topic">
+    <div class="topic">
 
-    <div class="container">
-        <h2>Ürüne Stok Sahibi Ata</h2>
-        <p>Ürün ve Stok Sahibi Seçiniz</p>
+        <div class="container">
+            <h2>Ürüne Stok Sahibi Ata</h2>
+            <p>Ürün ve Stok Sahibi Seçiniz</p>
 
-    </div>
+        </div>
     </div>
 
     <div class="content">
