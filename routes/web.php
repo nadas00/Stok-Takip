@@ -96,3 +96,8 @@ Route::get('/match/delete/{id}', function ($id) {
     return redirect("/match");
 
 });
+
+Route::get('/intro', function () {
+
+    return view("intro");
+});

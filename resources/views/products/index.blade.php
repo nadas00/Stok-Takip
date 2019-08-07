@@ -69,49 +69,81 @@ $agent = new Agent();
     <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
 </div>
 <div class="content" id="content">
-    <div>
-        <table class="table" id="productsBaslik">
+
+
+
+
+
+
+
+    <table style="table-layout:fixed; width:98%; word-wrap:break-word"  class="table" id="productsTable">
+
+
+
+        <?php $sıra = 1 ?>
+        @foreach($products as $product)
+
             <thead class="thead-dark">
+
             <tr>
                 <th scope="col">Sıra</th>
                 <th scope="col">id</th>
                 <th scope="col">Ürün adı</th>
                 <th scope="col">Ürün detayları</th>
-                <th scope="col">Marka</th>
-                <th scope="col">Stok miktarı</th>
-                <th scope="col">Stok Aktifliği</th>
-                <th scope="col">İşlem</th>
+
 
             </tr>
             </thead>
 
-        </table>
-    </div>
 
-    <table class="table" id="productsTable">
-
-        <tbody>
-        <?php $sıra = 1 ?>
-        @foreach($products as $product)
 
             <tr>
                 <th scope="row">{{$sıra++}} </th>
                 <td>{{$product->id}} </td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->description}}</td>
-                <td>{{$product->company}}</td>
-                <td>{{$product->amount}}</td>
-                <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                </td>
 
             </tr>
 
+                <thead class="thead-light">
+                <tr>
+
+                    <th scope="col">Marka</th>
+                    <th scope="col">Stok miktarı</th>
+                    <th scope="col">Stok Aktifliği</th>
+                    <th scope="col">İşlem</th>
+
+                </tr>
+                </thead>
+
+
+
+
+            <tr>
+                <td>{{$product->company}}</td>
+                <td>{{$product->amount}}</td>
+                <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a></td>
+
+
+            </tr>
+
+
         @endforeach
 
-        </tbody>
-
     </table>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>

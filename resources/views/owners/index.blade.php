@@ -74,7 +74,8 @@ $agent = new Agent();
 
 
     </div>
-    <table class="table" id="ownersTable">
+
+    <table style="table-layout:fixed; width:98%; word-wrap:break-word" class="table" id="ownersTable">
 
         <tbody>
         <?php $sıra = 1 ?>
@@ -82,7 +83,7 @@ $agent = new Agent();
 
 
             <tr>
-                <th scope="row">{{$sıra++}} </th>
+                <th>{{$sıra++}} </th>
                 <td>{{$owner->id}} </td>
 
                 <td>{{$owner->name}}</td>
