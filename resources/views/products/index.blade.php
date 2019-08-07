@@ -65,10 +65,10 @@ $agent = new Agent();
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-
+<div class="topic">
     <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
-    <hr>
-
+</div>
+<div class="content">
     <div>
         <table class="table" id="productsBaslik">
             <thead class="thead-dark">
@@ -114,7 +114,7 @@ $agent = new Agent();
     </table>
 
 
-
+</div>
 
 
     <script>
@@ -135,6 +135,37 @@ $agent = new Agent();
 
 
     </script>
+
+
+    <style>
+        .content{
+
+            background-color: white;
+            border: 1px solid black;
+            padding: 40px;
+            border-collapse: collapse;
+            border-top: none;
+
+
+
+
+
+        }
+
+        .topic{
+
+            background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
+            color: white;
+            background-color: #f1f1f1;
+            border: 1px solid black;
+            padding: 30px;
+            border-bottom-style: dashed;
+
+            text-align: center;
+
+
+        }
+    </style>
 
     <style>
 

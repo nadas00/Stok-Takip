@@ -26,14 +26,16 @@ $agent = new Agent();
 
 
 
-
+<div class="topic">
 
     <div class="container">
         <h2>Ürüne Stok Sahibi Ata</h2>
         <p>Ürün ve Stok Sahibi Seçiniz</p>
-        <hr>
 
+    </div>
+    </div>
 
+    <div class="content">
         <form id="selectorMain" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
@@ -61,7 +63,6 @@ $agent = new Agent();
 
         </form>
     </div>
-
     <script>
 
         $(document).ready(function () {
@@ -122,6 +123,34 @@ $agent = new Agent();
 
     </script>
 
-    </body>
-    </html>
+    <style>
+        .content{
+
+            background-color: white;
+            border: 1px solid black;
+            padding: 40px;
+            border-collapse: collapse;
+            border-top: none;
+
+
+
+
+
+        }
+
+        .topic{
+
+            background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
+            color: white;
+            background-color: #f1f1f1;
+            border: 1px solid black;
+            padding: 30px;
+            border-bottom-style: dashed;
+
+            text-align: center;
+
+
+        }
+    </style>
+
 @endsection
