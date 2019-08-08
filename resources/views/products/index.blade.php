@@ -117,8 +117,9 @@ $agent = new Agent();
                     </tr>
 
                 @endforeach
+                <?php $sayı = $sıra-1 ?>
 
-
+               <p  style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
 
             </table>
         </div>
@@ -157,7 +158,7 @@ $agent = new Agent();
 
             background-color: white;
             border: 1px solid black;
-            padding-top: 30px;
+            padding-top: 20px;
             padding-bottom: 30px;
             padding-left: 8px;
             padding-right: 8px;
