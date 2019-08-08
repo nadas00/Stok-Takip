@@ -58,54 +58,49 @@ $agent = new Agent();
     </div>
     <div class="content" id="content">
         <div id="ownersBaslik">
+            <div style="overflow-x:auto;" >
 
 
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Sıra</th>
-                    <th scope="col">id</th>
-                    <th scope="col">Kullanıcı adı</th>
-                    <th></th>
-                    <th scope="col">İşlem</th>
-                </tr>
-                </thead>
-            </table>
+                <table class="table" id="ownersTable">
 
 
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Sıra</th>
+                        <th scope="col">id</th>
+                        <th scope="col">Kullanıcı adı</th>
+                        <th scope="col">İşlem</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+                    <?php $sıra = 1 ?>
+                    @foreach($owners as $owner)
+
+
+                        <tr>
+                            <th scope="row">{{$sıra++}} </th>
+                            <td>{{$owner->id}} </td>
+
+                            <td style=" word-break: break-all;">{{$owner->name}}</td>
+
+                            <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
+                        </tr>
+
+                    @endforeach
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
         </div>
-
-
-
-
-        <table class="table" id="ownersTable">
-
-            <tbody>
-            <?php $sıra = 1 ?>
-            @foreach($owners as $owner)
-
-
-                <tr>
-                    <th scope="row">{{$sıra++}} </th>
-                    <td>{{$owner->id}} </td>
-
-                    <td>{{$owner->name}}</td>
-
-                    <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
-                </tr>
-
-            @endforeach
-
-            </tbody>
-
-
-        </table>
-
     </div>
-
     <script>
 
-        if ($('#ownersTable tr').length == 0) {
+        if ($('#ownersTable tr').length == 1) {
             var x = document.getElementById("OwnerEkleButonu");
             x.style.display = "visible";
             var y = document.getElementById("ownersBaslik");
@@ -134,7 +129,8 @@ $agent = new Agent();
             padding: 40px;
             border-collapse: collapse;
             border-top: none;
-
+            padding-left: 8px;
+            padding-right: 8px;
 
 
 

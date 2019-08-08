@@ -51,57 +51,61 @@ $agent = new Agent();
 
 
     <div class="topic" id="topic">
+
+
         <h3 id="ownerSayfaBaslik">Stok Sahipleri ve Ürünler</h3>
     </div>
 
 
 
     <div class="content" id="content">
+        <div style="overflow-x:auto;" >
 
-        <table class="table" id="detachTableTop">
-
-
-            <thead class="thead-dark">
-            <tr>
-
-                <th scope="col">Stok Sahibi</th>
-                <th scope="col">Kullanıcı adı</th>
-                <th scope="col">İşlem</th>
+            <table class="table" id="detachTableTop">
 
 
-            </tr>
-            </thead>
+                <thead class="thead-dark">
+                <tr>
+
+                    <th scope="col">Stok Sahibi</th>
+                    <th scope="col">Kullanıcı adı</th>
+                    <th scope="col">İşlem</th>
+
+
+                </tr>
+                </thead>
 
 
 
 
-        {{--<table class="table" id="detachTable">--}}
-            <tbody>
+                {{--<table class="table" id="detachTable">--}}
+                <tbody>
 
-            @foreach($products as $product)
+                @foreach($products as $product)
 
-                {{--
-                aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
-                diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
-                --}}
+                    {{--
+                        aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
+                            diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
+                            --}}
 
-                @if(\App\Owner::find($product->owner_id))
+                    @if(\App\Owner::find($product->owner_id))
 
-                    <tr>
+                        <tr>
 
-                        <td>{{\App\Owner::find($product->owner_id)->name}}</td>
-                        <td>{{$product->name}}</td>
-                        <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı
-                                Kopar</a>
+                            <td style="word-break: break-all;">{{\App\Owner::find($product->owner_id)->name}}</td>
+                            <td>{{$product->name}}</td>
+                            <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı
+                                    Kopar</a>
 
-                    </tr>
-                @endif
-            @endforeach
+                        </tr>
+                    @endif
+                @endforeach
 
-            </tbody>
+                </tbody>
 
 
-        </table>
+            </table>
+        </div>
     </div>
 
 
@@ -113,18 +117,18 @@ $agent = new Agent();
             table = document.getElementById("detachTable");
             switching = true;
             /*Make a loop that will continue until
-            no switching has been done:*/
+             no switching has been done:*/
             while (switching) {
                 //start by saying: no switching is done:
                 switching = false;
                 rows = table.rows;
                 /*Loop through all table rows (except the
-                first, which contains table headers):*/
+                 first, which contains table headers):*/
                 for (i = 1; i < (rows.length - 1); i++) {
                     //start by saying there should be no switching:
                     shouldSwitch = false;
                     /*Get the two elements you want to compare,
-                    one from current row and one from the next:*/
+                     one from current row and one from the next:*/
                     x = rows[i].getElementsByTagName("TD")[0];
                     y = rows[i + 1].getElementsByTagName("TD")[0];
                     //check if the two rows should switch place:
@@ -136,7 +140,7 @@ $agent = new Agent();
                 }
                 if (shouldSwitch) {
                     /*If a switch has been marked, make the switch
-                    and mark that a switch has been done:*/
+                     and mark that a switch has been done:*/
                     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                     switching = true;
                 }
@@ -148,13 +152,13 @@ $agent = new Agent();
     <script>
 
 
-        if ($('#detachTable tr').length == 0) {
+        if ($('#detachTableTop tr').length == 1) {
             var z = document.getElementById("ekleButonu");
             z.style.display = "visible";
-            var z2 = document.getElementById("topic");
-            z2.style.display = "none";
-            var z3 = document.getElementById("content");
-            z3.style.display = "none";
+            var za = document.getElementById("topic");
+            za.style.display = "none";
+            var zb = document.getElementById("content");
+            zb.style.display = "none";
 
 
         } else {
@@ -175,6 +179,8 @@ $agent = new Agent();
             padding: 40px;
             border-collapse: collapse;
             border-top: none;
+            padding-left: 8px;
+            padding-right: 8px;
 
 
 
