@@ -68,10 +68,22 @@ $agent = new Agent();
     <div class="topic" id="topic">
         <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
     </div>
+
+
+
+
+
+
+
+
+
     <div class="content" id="content">
-        <div>
-            <table class="table" id="productsBaslik">
-                <thead class="thead-dark">
+        <div style="overflow-x:auto;" >
+
+
+            <table class="table" id="productsTable">
+                {{--          <table class="table" id="productsBaslik">--}}
+                <thead class="thead-dark" >
                 <tr>
                     <th scope="col">Sıra</th>
                     <th scope="col">id</th>
@@ -85,48 +97,47 @@ $agent = new Agent();
                 </tr>
                 </thead>
 
+
+
+
+                <?php $sıra = 1 ?>
+                @foreach($products as $product)
+
+                    <tr>
+                        <th scope="row">{{$sıra++}} </th>
+                        <td>{{$product->id}} </td>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->description}}</td>
+                        <td>{{$product->company}}</td>
+                        <td>{{$product->amount}}</td>
+                        <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                        <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
+                        </td>
+
+                    </tr>
+
+                @endforeach
+
+
+
             </table>
         </div>
-
-        <table class="table" id="productsTable">
-
-            <tbody>
-            <?php $sıra = 1 ?>
-            @foreach($products as $product)
-
-                <tr>
-                    <th scope="row">{{$sıra++}} </th>
-                    <td>{{$product->id}} </td>
-                    <td>{{$product->name}}</td>
-                    <td>{{$product->description}}</td>
-                    <td>{{$product->company}}</td>
-                    <td>{{$product->amount}}</td>
-                    <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                    <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                    </td>
-
-                </tr>
-
-            @endforeach
-
-            </tbody>
-
-        </table>
-
 
     </div>
 
 
+
     <script>
 
+        {{--
+            içinde başlıkları tutan table tr'si kaldığında yani tüm kayıtlar silindiğinde prodcutstable tr sayısı 1 oluyor
+            ve sayfa içeriği buna göre ayarlanıyor.
+            --}}
 
-        if ($('#productsTable tr').length == 0) {
+
+        if ($('#productsTable tr').length == 1) {
             var x = document.getElementById("ekleButonu");
             x.style.display = "visible";
-            var y = document.getElementById("productsBaslik");
-            y.style.display = "none";
-            var z = document.getElementById("productsSayfaBaslik");
-            z.style.display = "none";
             var z2 = document.getElementById("topic");
             z2.style.display = "none";
             var z3 = document.getElementById("content");
@@ -146,8 +157,10 @@ $agent = new Agent();
 
             background-color: white;
             border: 1px solid black;
-            padding: 40px;
-            border-collapse: collapse;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 8px;
+            padding-right: 8px;
             border-top: none;
 
 

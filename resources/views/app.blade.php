@@ -2,69 +2,110 @@
 
 <html lang="en">
 <div>
-@yield("header")
-<head>
+    @yield("header")
+    <head>
 
 
 
-    <title>Staj.Site</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
+        <title>Staj.Site</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="{{ secure_asset('/css/style.css') }}" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark" >
-    <!-- Brand -->
-    <a class="navbar-brand" id="navName" href="#">asdad</a>
+    <nav style="padding: 25px" class="navbar navbar-expand-md bg-dark navbar-dark" >
+        <!-- Brand -->
+        <a class="navbar-brand" id="navName" href="#">Stok Takip</a>
 
-    <!-- Toggler/collapsibe Button -->
+        <!-- Toggler/collapsibe Button -->
 
 
 
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-    </button>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/products/create">Ürün Kaydet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/products">Ürüleri Görüntüle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/match">İlişkileri Göster</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="mailto:admin@staj.site?Subject=staj.site%20hakkında">Bizimle İletişime Geçin</a>
-            </li>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/create">Ürün Kaydet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products">Ürüleri Görüntüle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/match">İlişkileri Göster</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:admin@staj.site?Subject=staj.site%20hakkında">Bizimle İletişime Geçin</a>
+                </li>
 
-        </ul>
+            </ul>
 
-    </div>
+        </div>
 
-</nav>
+    </nav>
+
+    @if($agent->isMobile())
+        <br>
+        <script>
+            window.onload = function () {
+
+                setnav();
+
+            };
+
+
+            function setnav(){
+
+                var z = document.getElementById("navName");
+                z.innerHTML="Stok Takip Mobil";
+            }
+
+        </script>
+
+
+    @else
+        <br>
+        <script>
+
+
+            window.onload = function () {
+
+                setnav();
+
+            };
+
+
+            function setnav(){
+                var t = document.getElementById("navName");
+                t.innerHTML="Stok Takip";
+            }
+
+
+        </script>
+    @endif
+
 
     <style>
 
@@ -109,46 +150,6 @@
         }
     </style>
 
-
-@if($agent->isMobile())
-    <br>
-    <script>
-        window.onload = function () {
-
-            setnav();
-
-        };
-
-
-        function setnav(){
-
-            var z = document.getElementById("navName");
-            z.innerHTML="Stok Takip Mobil";
-        }
-
-    </script>
-
-
-@else
-    <br>
-    <script>
-
-
-        window.onload = function () {
-
-            setnav();
-
-        };
-
-
-        function setnav(){
-            var t = document.getElementById("navName");
-            t.innerHTML="Stok Takip";
-        }
-
-
-    </script>
-@endif
 
 
 
@@ -197,7 +198,7 @@
         margin-top: 50px;
 
         color: rgb(230, 230, 220);
-        position: absolute;
+        position: fixed;
         bottom: 0px;
     }
     html {
@@ -210,7 +211,7 @@
     body {
         background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
 
-      background-color: gray(131234);
+        background-color: gray(131234);
         overflow-x: hidden;
         margin: 0px;
         position: relative;
