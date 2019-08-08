@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
+<?php
+use Jenssegers\Agent\Agent;
+$agent = new Agent();
+?>
+
 <div>
     @yield("header")
     <head>
