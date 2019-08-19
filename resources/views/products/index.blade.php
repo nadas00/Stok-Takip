@@ -78,6 +78,8 @@ $agent = new Agent();
 
 
     <div class="content" id="content">
+
+{{-- x düzlemine kaydırma barı ekler --}}
         <div style="overflow-x:auto;" >
 
 
@@ -107,7 +109,7 @@ $agent = new Agent();
                         <th scope="row">{{$sıra++}} </th>
                         <td>{{$product->id}} </td>
                         <td>{{$product->name}}</td>
-                        <td>{{$product->description}}</td>
+                        <td style=" word-break: break-all;">{{$product->description}}</td>
                         <td>{{$product->company}}</td>
                         <td>{{$product->amount}}</td>
                         <td>{{$product->available ? 'Yes' : 'No'}}</td>

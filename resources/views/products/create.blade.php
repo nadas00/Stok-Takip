@@ -76,7 +76,7 @@ $agent = new Agent();
         </div>
     </form>
 
-    </div>
+
 @endsection
 
 <style>
