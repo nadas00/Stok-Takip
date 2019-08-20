@@ -20,20 +20,44 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductController@index');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+
+    Route::get('/products/create', 'ProductController@create');
+    Route::get('/owners/create', 'OwnerController@create');
+    Route::get('/match/create', 'Match@create');
+
+
+});
+
+
+
+
+
+
+
+
+
+
 
 
 // ürün route'ları
 
-Route::get('/products/create', 'ProductController@create');
+
 
 Route::post('/products', 'ProductController@store');
 
 Route::get('/products', 'ProductController@index');
+
 
 Route::get('/products/delete/{id}', function ($id) {
     DB::table('products')->where('id', '=', $id)->delete();
@@ -43,7 +67,7 @@ Route::get('/products/delete/{id}', function ($id) {
 
 // kullanıcı route'ları
 
-Route::get('/owners/create', 'OwnerController@create');
+
 
 Route::post('/owners', 'OwnerController@store');
 
@@ -76,7 +100,7 @@ Route::get('/owners/delete/{id}', function ($id) {
 
 // Ürün'e kullanıcı atama route'u
 
-Route::get('/match/create', 'Match@create');
+
 
 Route::post('/match/create', 'Match@store');
 
@@ -101,3 +125,4 @@ Route::get('/intro', function () {
 
     return view("intro");
 });
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

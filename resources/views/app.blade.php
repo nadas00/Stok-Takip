@@ -68,6 +68,11 @@ $agent = new Agent();
                     <a class="nav-link" href="mailto:admin@staj.site?Subject=staj.site%20hakkında">Bizimle İletişime Geçin</a>
                 </li>
 
+                @if (Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/logout') }}"> Çıkış Yap </a>
+                </li>
+@endif
             </ul>
 
         </div>
