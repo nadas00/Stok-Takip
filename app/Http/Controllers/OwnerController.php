@@ -24,7 +24,8 @@ class OwnerController extends Controller
     {
 
         $validatedData = $request->validate([
-            'name' => 'required|unique:owners|max:50',
+            'ownerNameVar' => 'required|unique:owners|max:50',
+            'profil' => 'required'
 
         ]);
 

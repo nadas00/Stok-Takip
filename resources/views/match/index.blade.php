@@ -92,8 +92,8 @@ $agent = new Agent();
 
                         <tr>
 
-                            <td style="word-break: break-all;">{{\App\Owner::find($product->owner_id)->name}}</td>
-                            <td>{{$product->name}}</td>
+                            <td style="word-break: break-all;">{{\App\Owner::find($product->owner_id)->ownerNameVar}}</td>
+                            <td>{{$product->productName}}</td>
                             <td><a href="{{ url('/match/delete/'.$product->id)}}" class="btn btn-danger" role="button">Bağlantı
                                     Kopar</a>
 

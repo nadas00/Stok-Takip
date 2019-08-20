@@ -16,7 +16,14 @@ $agent = new Agent();
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="title">Kullanıcı Adı</label>
-                <input type="text" class="form-control" id="ownerName"  name="name">
+                <input type="text" class="form-control" id="ownerName"  name="ownerNameVar">
+                <hr>
+            </div>
+            <div class="form-group">
+                <label for="description">Profil Tanımı</label><br/>
+                <label class="radio-inline"><input type="radio" name="profil" value="Müşteri"> Müşteri</label>
+                <label class="radio-inline"><input type="radio" name="profil" value="Satıcı"> Satıcı</label>
+
             </div>
 
             @if ($errors->any())

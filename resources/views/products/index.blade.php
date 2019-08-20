@@ -102,13 +102,14 @@ $agent = new Agent();
 
 
 
+
                 <?php $sıra = 1 ?>
                 @foreach($products as $product)
 
                     <tr>
                         <th scope="row">{{$sıra++}} </th>
                         <td>{{$product->id}} </td>
-                        <td>{{$product->name}}</td>
+                        <td style="word-break: break-word;">{{$product->productName}}</td>
                         <td style=" word-break: break-all;">{{$product->description}}</td>
                         <td>{{$product->company}}</td>
                         <td>{{$product->amount}}</td>

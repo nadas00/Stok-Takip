@@ -69,6 +69,7 @@ $agent = new Agent();
                         <th scope="col">Sıra</th>
                         <th scope="col">id</th>
                         <th scope="col">Kullanıcı adı</th>
+                        <th scope="col">Profil adı</th>
                         <th scope="col">İşlem</th>
                     </tr>
 
@@ -76,6 +77,8 @@ $agent = new Agent();
 
                     <tbody>
                     <?php $sıra = 1 ?>
+
+
                     @foreach($owners as $owner)
 
 
@@ -83,7 +86,14 @@ $agent = new Agent();
                             <th scope="row">{{$sıra++}} </th>
                             <td>{{$owner->id}} </td>
 
-                            <td style=" word-break: break-all;">{{$owner->name}}</td>
+                            <td style=" word-break: break-all;">{{$owner->ownerNameVar}}</td>
+
+
+
+
+
+                            <td style=" word-break: break-all;">{{$owner->profil}}</td>
+
 
                             <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
                         </tr>

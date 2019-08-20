@@ -11,7 +11,6 @@ $agent = new Agent();
 @section('content')
 
 
-
     {{--  BU ALAN ÜRÜN EKLEMEK İÇİN BİR FORM İÇERİR  --}}
 
 
@@ -27,7 +26,7 @@ $agent = new Agent();
 
             <div class="content">
                 <label for="title">Ürün Adı</label>
-                <input class="form-control" id="productName" name="name">
+                <input class="form-control" id="productName" name="productName">
 
                 <hr>
 
@@ -41,6 +40,7 @@ $agent = new Agent();
                         <option>Google</option>
                         <option>Mi</option>
                         <option>Samsung</option>
+                        <option>Diğer</option>
                     </select>
 
                     <hr>

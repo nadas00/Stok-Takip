@@ -78,7 +78,7 @@ return [
     'max' => [
         'numeric' => ':attribute değeri :max değerinden küçük olmalıdır.',
         'file' => ':attribute değeri :max kilobayt değerinden küçük olmalıdır.',
-        'string' => ':attribute değeri :max karakter değerinden küçük olmalıdır.',
+        'string' => ':attribute :max karakterden kısa olmalıdır.',
         'array' => ':attribute değeri :max adedinden az nesneye sahip olmalıdır.',
     ],
     'mimes' => ':attribute dosya biçimi :values olmalıdır.',
@@ -94,7 +94,7 @@ return [
     'numeric' => ':attribute sayı olmalıdır.',
     'present' => ':attribute alanı mevcut olmalıdır.',
     'regex' => ':attribute biçimi geçersiz.',
-    'required' => ':attribute alanı gereklidir.',
+    'required' => ':attribute doldurulması zorunlu alandır.', //değiştirilmiş satır.
     'required_if' => ':attribute alanı, :other :value değerine sahip olduğunda zorunludur.',
     'required_unless' => ':attribute alanı, :other alanı :value değerlerinden birine sahip olmadığında zorunludur.',
     'required_with' => ':attribute alanı :values varken zorunludur.',
@@ -140,24 +140,22 @@ return [
 
     'custom' => [
         'name' => [
-            'required' => 'isim gir be ya',
+            'required' => ':attribute doldurması zorunlu alandır',
         ],
         'amount' => [
-            'required' => 'miktar gir be ya',
+            'required' => '"Stok Miktarı" doldurulması zorunlu alandır.',
         ],
         'company' => [
-            'required' => 'şirket gir be ya',
+            'required' => '"Ürün Markası" doldurulması zorunlu alandır.',
         ],
         'available' => [
-            'required' => 'stok aktifliği gir be ya',
+            'required' => '"Stok Aktifliği" doldurulması zorunlu alandır.',
         ],
         'description' => [
-            'required' => 'description gir be ya',
+            'required' => '"Ürün Detayları" doldurulması zorunlu alandır',
         ],
         'max' => [
-
-            'text'  => 'HÖST ULAN ',
-
+            'text' => 'asdasd değeri :max değerinden küçük olmalıdır.',
         ],
     ],
 
@@ -184,6 +182,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+'productName' => '"Ürün Adı"',
+        'amount' => '"Stok Miktarı"',
+        'ownerNameVar'=> '"Kullanıcı Adı"',
+    ],
 
 ];

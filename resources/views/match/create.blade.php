@@ -42,8 +42,13 @@ $agent = new Agent();
                 <label for="sel1">Ürün (Seçiniz)</label>
                 <select name="productSelector" class="form-control" id="productSelector">
                     <option value="" selected disabled hidden>Ürün ismi seçiniz</option>
+
+                    {{--sade stok durumu aktif ürünleri listeler--}}
+                    <?php $products = \App\Product::where('available',1)->get();?>
                     @foreach($products as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+
+                        <option value="{{ $item->id }}">{{ $item->productName }}</option>
+
                     @endforeach
                 </select>
             </div>
@@ -52,8 +57,11 @@ $agent = new Agent();
                 <label for="sel1">Stok Sahibi (Seçiniz)</label>
                 <select name="ownerSelector" class="form-control" id="ownerSelector">
                     <option value="" selected disabled hidden>Kullanıcı ismi seçiniz</option>
+
+                    {{--sadece satıcı profiline sahip kullanıcıları listeler--}}
+                    <?php $owners = \App\Owner::where('profil','satıcı')->get();?>
                     @foreach($owners as $item2)
-                        <option value="{{ $item2->id }}">{{ $item2->name }}</option>
+                        <option value="{{ $item2->id }}">{{ $item2->ownerNameVar }}</option>
                     @endforeach
                 </select>
             </div>
