@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+{{--                <div class="card-header">{{ __('Login') }}</div>--}}
+                <div class="card-header">ALANLAR OTOMATİK OLARAK DOLDURULDU GİRİŞ YAPA TIKLAYINIZ</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -16,9 +17,10 @@
 
                             <div class="col-md-6">
 
-                                <a style="font-style: italic;" >Boşluğa küçük harflerle "deneme" yazınız.</a>
+                                <a style="font-style: italic;" >Bu alan otomatik olarak dolduruldu giriş yapa tıklayınız</a>
 
-                                <input placeholder="deneme" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+{{--                                <input placeholder="deneme" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
+                                <input placeholder="deneme" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="deneme" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -32,8 +34,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <a style="font-style: italic" >Boşluğa küçük harflerle "deneme" yazınız.</a>
-                                <input placeholder="deneme" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <a style="font-style: italic;" >Bu alan otomatik olarak dolduruldu giriş yapa tıklayınız</a>
+                                <input placeholder="deneme" id="password" type="password" class="form-control @error('password') is-invalid @enderror" value="deneme" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

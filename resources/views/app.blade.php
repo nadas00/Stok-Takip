@@ -45,23 +45,25 @@ $agent = new Agent();
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/products/create">Ürün Kaydet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/products">Ürüleri Görüntüle</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/match">İlişkileri Göster</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/create">Ürün Kaydet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
+                </li>
+
             </ul>
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
@@ -72,7 +74,17 @@ $agent = new Agent();
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/logout') }}"> Çıkış Yap </a>
                 </li>
-@endif
+               @endif
+                @if (Auth::guest())
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url('/login') }}"> Giriş Yap </a>
+                </li>
+               @endif
+
+
+
+
+
             </ul>
 
         </div>

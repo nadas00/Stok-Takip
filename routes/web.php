@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect("/products/create");
+    return redirect("/owners");
 });
 
 
@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'ProductController@index');
+Route::get('/home', 'OwnerController@index');
 
 
 
