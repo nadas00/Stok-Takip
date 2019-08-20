@@ -50,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'max:255', 'unique:users'], //email kaldırıldı, site ziyaretçileri sadece metin girerek giriş yapabilsin diye.
             'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
     }
