@@ -1,12 +1,38 @@
 @extends('app')
 
+
+
+
 @section('content')
-<div class="container">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+
+
+    <script>
+        window.onload=function(){
+            Swal.fire({
+                text: "Alanlar otomatik olarak dolduruldu. Giriş Yap'a tıklayınız",
+                confirmButtonText: "Tamam",
+                type: "success",
+            })
+        };
+
+    </script>
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
 {{--                <div class="card-header">{{ __('Login') }}</div>--}}
-              <div class="topic" ><div style="margin-bottom: 20px; margin-top: 5px" >ALANLAR OTOMATİK OLARAK DOLDURULDU GİRİŞ YAPA TIKLAYINIZ</div></div>
+              <div class="topic" ><div style="margin-bottom: 20px; margin-top: 5px" >ALANLAR OTOMATİK OLARAK DOLDURULDU GİRİŞ YAP'A TIKLAYINIZ</div></div>
 <div class="content">
             <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -17,7 +43,7 @@
 
                             <div class="col-md-6">
 
-                                <a style="font-style: italic;" >Bu alan otomatik olarak dolduruldu giriş yapa tıklayınız</a>
+
 
 {{--                                <input placeholder="deneme" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
                                 <input placeholder="deneme" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="deneme" required autocomplete="email" autofocus>
@@ -34,7 +60,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <a style="font-style: italic;" >Bu alan otomatik olarak dolduruldu giriş yapa tıklayınız</a>
+
                                 <input placeholder="deneme" id="password" type="password" class="form-control @error('password') is-invalid @enderror" value="deneme" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -78,6 +104,9 @@
     </div>
 </div>
 @endsection
+
+
+
 <style>
     .content{
 

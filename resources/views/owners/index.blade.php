@@ -4,10 +4,6 @@ use Jenssegers\Agent\Agent;
 $agent = new Agent();
 ?>
 
-
-
-
-
 @section('content')
 
 
@@ -48,10 +44,6 @@ $agent = new Agent();
 
     </div>
 
-
-    @if (Session::has('message'))
-        <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
 
     <div class="topic" id="topic">
         <h3 id="ownerSayfaBaslik">Kaydedilen Kullanıcılar</h3>
@@ -101,6 +93,9 @@ $agent = new Agent();
                     @endforeach
 
                     </tbody>
+                    <?php $sayı = $sıra-1 ?>
+
+                    <p  style="font-weight: lighter; padding-left: 5px;" > 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
 
 
                 </table>
@@ -108,6 +103,14 @@ $agent = new Agent();
             </div>
         </div>
     </div>
+
+
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
+
+
+
     <script>
 
         if ($('#ownersTable tr').length == 1) {
@@ -139,6 +142,7 @@ $agent = new Agent();
             padding: 40px;
             border-collapse: collapse;
             border-top: none;
+            padding-top: 1rem;
             padding-left: 8px;
             padding-right: 8px;
 
@@ -154,6 +158,7 @@ $agent = new Agent();
             background-color: #f1f1f1;
             border: 1px solid black;
             padding: 30px;
+
             border-bottom-style: dashed;
 
             text-align: center;

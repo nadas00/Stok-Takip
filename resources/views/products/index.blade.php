@@ -6,9 +6,6 @@ $agent = new Agent();
 
 @section('content')
 
-
-
-
     {{--  BU ALAN EKLENMİŞ ÜRÜNLERİ GÖSTEREN BİR TABLO İÇERİR --}}
 
 
@@ -49,33 +46,10 @@ $agent = new Agent();
     </div>
 
 
-    <script>
-        function SomeDeleteRowFunction() {
-            // event.target will be the input element.
-            var td = event.target.parentNode;
-            var tr = td.parentNode; // the row to be removed
-            tr.parentNode.removeChild(tr);
-
-
-        }
-
-
-    </script>
-    @if (Session::has('message'))
-        <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
 
     <div class="topic" id="topic">
         <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
     </div>
-
-
-
-
-
-
-
-
 
     <div class="content" id="content">
 
@@ -122,12 +96,31 @@ $agent = new Agent();
                 @endforeach
                 <?php $sayı = $sıra-1 ?>
 
-                <p  style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
+                <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
 
             </table>
         </div>
 
     </div>
+
+
+
+    <script>
+        function SomeDeleteRowFunction() {
+            // event.target will be the input element.
+            var td = event.target.parentNode;
+            var tr = td.parentNode; // the row to be removed
+            tr.parentNode.removeChild(tr);
+
+
+        }
+
+
+    </script>
+    @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
+
 
 
 
@@ -161,7 +154,7 @@ $agent = new Agent();
 
             background-color: white;
             border: 1px solid black;
-            padding-top: 20px;
+            padding-top: 1rem;
             padding-bottom: 30px;
             padding-left: 8px;
             padding-right: 8px;
@@ -180,6 +173,7 @@ $agent = new Agent();
             background-color: #f1f1f1;
             border: 1px solid black;
             padding: 30px;
+
             border-bottom-style: dashed;
 
             text-align: center;

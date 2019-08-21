@@ -72,7 +72,7 @@ $agent = new Agent();
 
                 @if (Auth::user())
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/logout') }}"> Çıkış Yap </a>
+                    <a class="nav-link active" href="{{ url('/logout') }}"> Çıkış Yap </a>
                 </li>
                @endif
                 @if (Auth::guest())

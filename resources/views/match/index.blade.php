@@ -80,9 +80,9 @@ $agent = new Agent();
 
                 {{--<table class="table" id="detachTable">--}}
                 <tbody>
-
+<?php $sıra = 1?>
                 @foreach($products as $product)
-
+<?php $sıra++ ?>
                     {{--
                         aşağıdaki if eğer sadece bir owner'a bağlıysa listeye ekler
                             diğer türlü tüm ürünleri listelemeye çalışınca ownner_id bulamadığı için hata veriyor
@@ -100,10 +100,10 @@ $agent = new Agent();
                         </tr>
                     @endif
                 @endforeach
-
+<?php $sayı = $sıra-1 ?>
                 </tbody>
 
-
+                <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
             </table>
         </div>
     </div>
@@ -180,6 +180,7 @@ $agent = new Agent();
             border-collapse: collapse;
             border-top: none;
             padding-left: 8px;
+            padding-top: 1rem;
             padding-right: 8px;
 
 
