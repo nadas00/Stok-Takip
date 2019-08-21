@@ -6,9 +6,9 @@
         <div class="col-md-8">
             <div class="card">
 {{--                <div class="card-header">{{ __('Login') }}</div>--}}
-                <div class="card-header">ALANLAR OTOMATİK OLARAK DOLDURULDU GİRİŞ YAPA TIKLAYINIZ</div>
-
-                <div class="card-body">
+              <div class="topic" ><div style="margin-bottom: 20px; margin-top: 5px" >ALANLAR OTOMATİK OLARAK DOLDURULDU GİRİŞ YAPA TIKLAYINIZ</div></div>
+<div class="content">
+            <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -72,8 +72,40 @@
                         </div>
                     </form>
                 </div>
+</div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+<style>
+    .content{
+
+        background-color: white;
+        border: 1px solid black;
+        padding: 40px;
+        border-collapse: collapse;
+        border-top: none;
+
+
+
+
+
+    }
+
+    .topic{
+
+        background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
+        color: white;
+        background-color: #f1f1f1;
+        border: 1px solid black;
+        padding: 30px;
+        border-bottom-style: dashed;
+
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 10px;
+
+
+    }
+</style>
