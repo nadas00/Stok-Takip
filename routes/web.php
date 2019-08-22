@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', 'OwnerController@index');
 
 
-Route::get('/products/buy/{productId}', 'ProductController@satinAl');
+
 
 
 
@@ -131,4 +131,14 @@ Route::get('/intro', function () {
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-Route::post('/proucts/buy/{id}', 'ProductController@satinAl');
+
+
+
+Route::get('/products/buy/{id}', function ($id) {
+   $products = \App\Product::all();
+
+    return view("products.buy",compact('id',$id,'products',$products));
+
+});
+
+

@@ -53,23 +53,8 @@ class ProductController extends Controller
         return view('products.index', compact('products', $products));
     }
 
-    public function satinAl($id){
-
-        if(Auth::guest()){
-            $message = "Üye girişi yapmalısınız.";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-
-        }
-        if (Auth::user()){
-
-            $products = Product::all();
-            return view('products.buy',compact('products',$products,'id',$id));
-        }
 
 
-
-
-    }
 
 
 }
