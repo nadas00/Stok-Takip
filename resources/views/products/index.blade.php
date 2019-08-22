@@ -2,7 +2,12 @@
 <?php
 use Jenssegers\Agent\Agent;
 $agent = new Agent();
+
+use Illuminate\Support\Facades\Auth;
+
 ?>
+
+
 
 @section('content')
 
@@ -94,8 +99,12 @@ $agent = new Agent();
                         <td>{{$product->company}}</td>
                         <td>{{$product->amount}}</td>
                         <td>{{$product->available ? 'Yes' : 'No'}}</td>
-                        <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                        <td><a  href="{{ url('/products/buy/'.$product->id)}}"  class="btn btn-success" role="button">Satın Al</a>
+                        <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
+                        <td>
+                            <a  @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                class="btn btn-success" role="button">Satın Al
+                            </a>
                         </td>
 
                     </tr>
@@ -155,7 +164,7 @@ $agent = new Agent();
 
                             <td>{{$product->available ? 'Yes' : 'No'}}</td>
                             <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                            <td><a  href="{{ url('/products/buy/'.$product->id)}}"  class="btn btn-success" role="button">Satın Al</a>
+                            <td><a   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif  class="btn btn-success" role="button">Satın Al</a>
                             </td>
 
                         </tr>
@@ -290,6 +299,12 @@ $agent = new Agent();
             margin-top: -50px;
         }
     </style>
+
+    <script>
+         function girisYap() {
+            alert("bu islem için giris yap")
+        }
+    </script>
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -53,8 +54,19 @@ class ProductController extends Controller
     }
 
     public function satinAl($id){
-        $products = Product::all();
-        return view('products.buy',compact('products',$products,'id',$id));
+
+        if(Auth::guest()){
+            $message = "Üye girişi yapmalısınız.";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+
+        }
+        if (Auth::user()){
+
+            $products = Product::all();
+            return view('products.buy',compact('products',$products,'id',$id));
+        }
+
+
 
 
     }
