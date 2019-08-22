@@ -95,7 +95,7 @@ $agent = new Agent();
                         <td>{{$product->amount}}</td>
                         <td>{{$product->available ? 'Yes' : 'No'}}</td>
                         <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                        <td><a  href="javascript:satinaAl()" class="btn btn-success" role="button">Satın Al</a>
+                        <td><a  href="{{ url('/products/buy/'.$product->id)}}"  class="btn btn-success" role="button">Satın Al</a>
                         </td>
 
                     </tr>
@@ -123,12 +123,7 @@ $agent = new Agent();
         }
     </script>--}}
 
-    <script>
-        function satinaAl() {
 
-
-        }
-    </script>
 
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>

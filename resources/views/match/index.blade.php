@@ -68,7 +68,7 @@ $agent = new Agent();
                 <tr>
 
                     <th scope="col">Stok Sahibi</th>
-                    <th scope="col">Kullanıcı adı</th>
+                    <th scope="col">Ürün adı</th>
                     <th scope="col">İşlem</th>
 
 

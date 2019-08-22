@@ -41,6 +41,8 @@ class ProductController extends Controller
         Product::create($request->all());
         return redirect('/products');
 
+
+
     }
 
 
@@ -48,6 +50,13 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('products.index', compact('products', $products));
+    }
+
+    public function satinAl($id){
+        $products = Product::all();
+        return view('products.buy',compact('products',$products,'id',$id));
+
+
     }
 
 
