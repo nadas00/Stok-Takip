@@ -50,7 +50,7 @@ $agent = new Agent();
 
     </div>
 
-
+    @if($agent->isMobile()==0)
 
     <div class="topic" id="topic">
         <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
@@ -109,7 +109,68 @@ $agent = new Agent();
         </div>
 
     </div>
+@endif
 
+    @if($agent->isMobile())
+
+        <div class="topic" id="topic">
+            <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
+        </div>
+
+        <div class="content" id="content">
+
+            {{-- x düzlemine kaydırma barı ekler --}}
+            <div style="overflow-x:auto;" >
+
+
+                <table class="table" id="productsTable">
+                    {{--          <table class="table" id="productsBaslik">--}}
+                    <thead class="thead-dark" >
+                    <tr>
+                        <th scope="col">Sıra</th>
+
+                        <th scope="col">Ürün adı</th>
+
+                       <th scope="col"> Ürün Detayları</th>
+                        <th scope="col">Stok miktarı</th>
+
+                        <th scope="col">İşlem</th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+
+
+
+
+
+                    <?php $sıra = 1 ?>
+                    @foreach($products as $product)
+
+                        <tr>
+                            <th scope="row">{{$sıra++}} </th>
+
+                            <td style="word-break: break-word;">{{$product->productName}}</td>
+                            <td style=" word-break: break-all;">{{$product->description}}</td>
+
+                            <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                            <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
+                            <td><a  href="{{ url('/products/buy/'.$product->id)}}"  class="btn btn-success" role="button">Satın Al</a>
+                            </td>
+
+                        </tr>
+
+                    @endforeach
+                    <?php $sayı = $sıra-1 ?>
+
+                    <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
+
+                </table>
+            </div>
+
+        </div>
+
+        @endif
 
 {{--
     <script>

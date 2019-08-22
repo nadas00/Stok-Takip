@@ -45,14 +45,14 @@ $agent = new Agent();
       <button class="btn btn-success btn-block">Satın Al</button>
                 <div style="alignment: right" >
                     <br>
-                    <div>
+                    <div style="margin-bottom: 0">
                     <p style="font-style: italic; padding-bottom: 1px">Satın alma sayfasına geri dön</p>
                     </div>
-<div  >
-                    <button style="padding-top: 10px;  "  class="btn btn-outline-secondary "><i class="material-icons">
+<div style="margin-top: 0" >
+                    <a id="backButton" role="button" href="/products" style="padding-top: 10px;  "  class="btn btn-outline-secondary backButton"><i class="material-icons">
                         keyboard_backspace
                     </i>
-                    </button>
+                    </a>
 
 </div>
                 </div>
@@ -130,6 +130,14 @@ $agent = new Agent();
         }
     </style>
 
+
+    <style>
+        .backButton:hover{
+            color: red;
+            size: B5;
+            background-color: white;
+        }
+    </style>
 
 
 @endsection
