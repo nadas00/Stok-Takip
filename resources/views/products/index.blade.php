@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <div id="ekleButonu">
@@ -302,7 +303,35 @@ use Illuminate\Support\Facades\Auth;
 
     <script>
          function girisYap() {
-            alert("bu islem için giris yap")
+
+
+             swal("Bu işlem için izniniz yok! Giriş yapınız.", {
+                 icon: "warning",
+                 buttons: {
+                     catch: {
+                         text: "Giriş Yap",
+                         value: "catch",
+                     },
+                     cancel: "Geri",
+
+
+                 },
+             })
+                 .then((value) => {
+                     switch (value) {
+
+
+
+                         case "catch":
+                             window.location = "/login";
+                             break;
+
+                         default:
+                            break;
+                     }
+                 });
+
+
         }
     </script>
 
