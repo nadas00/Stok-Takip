@@ -142,7 +142,7 @@ use Illuminate\Support\Facades\Auth;
                         <th scope="col">Ürün adı</th>
 
                        <th scope="col"> Ürün Detayları</th>
-                        <th scope="col">Stok miktarı</th>
+
 
                         <th scope="col">İşlem</th>
                         <th></th>
@@ -163,9 +163,12 @@ use Illuminate\Support\Facades\Auth;
                             <td style="word-break: break-word;">{{$product->productName}}</td>
                             <td style=" word-break: break-all;">{{$product->description}}</td>
 
-                            <td>{{$product->available ? 'Yes' : 'No'}}</td>
+
                             <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                            <td><a   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif  class="btn btn-success" role="button">Satın Al</a>
+                            <td><a
+                                @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                class="btn btn-success" role="button">Satın Al</a>
                             </td>
 
                         </tr>
