@@ -11,6 +11,8 @@
 |
 */
 
+use App\Product;
+
 Route::get('/', function () {
     return redirect("/owners");
 });
@@ -91,7 +93,7 @@ Route::get('/denden', function () {
     dd(\App\Owner::find(1)->product);
 });
 Route::get('/den', function () {
-    dd(\App\Product::find(1)->owner);
+    dd(Product::find(1)->owner);
 });
 
 
@@ -135,10 +137,13 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get('/products/buy/{id}', function ($id) {
-   $products = \App\Product::all();
+   $productSelected = Product::where('id',$id)->get()->first->id;
 
-    return view("products.buy",compact('id',$id,'products',$products));
+    return view("products.buy",compact('productSelected',$productSelected,'id',$id));
 
 });
+
+
+
 
 

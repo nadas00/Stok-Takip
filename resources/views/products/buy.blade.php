@@ -6,6 +6,9 @@ $agent = new Agent();
 
 @section('content')
 
+
+
+
     {{--  BU ALAN EKLENMİŞ ÜRÜNLERİ GÖSTEREN BİR TABLO İÇERİR --}}
 
 
@@ -23,43 +26,40 @@ $agent = new Agent();
     </div>
 
     <div class="content" id="content">
-        @foreach($products as $product)
 
-            <tr>
-  @if($product->id==$id)
+
+
+
                     <br>
-               <h4>Satın almak istediğiniz ürün : "{{\App\Product::where('id',$id)->get()->first()->productName}}"</h4>
-      <a>Satın almak istediğiniz ürünün açıklaması: {{\App\Product::where('id',$id)->get()->first()->description}}</a>
+                    <h4>Satın almak istediğiniz ürün : " {{$productSelected->productName}}"</h4>
+                    <a>Satın almak istediğiniz ürünün açıklaması:  {{$productSelected->description}}</a>
 
                     <hr>
                     <br>
                     <select class="form-control" name="company">
                         <option value="" selected disabled hidden>Ürün adedi seçiniz</option>
                         <?php $i = 1 ?>
-                        @for($i=1; $i< $stokMiktari = \App\Product::where('id',$id)->get()->first()->amount+1; $i++)
-                        <option>{{$i}}</option>
-@endfor
+                        @for($i=1; $i< $stokMiktari =  $productSelected->amount+1; $i++)
+                            <option>{{$i}}</option>
+                        @endfor
                     </select>
 
                     <br>
-      <button class="btn btn-success btn-block">Satın Al</button>
-                <div style="alignment: right" >
-                    <br>
-                    <div style="margin-bottom: 0">
-                    <p style="font-style: italic; padding-bottom: 1px">Satın alma sayfasına geri dön</p>
+                    <button class="btn btn-success btn-block">Satın Al</button>
+                    <div style="alignment: right" >
+                        <br>
+                        <div style="margin-bottom: 0">
+                            <p style="font-style: italic; padding-bottom: 1px">Satın alma sayfasına geri dön</p>
+                        </div>
+                        <div style="margin-top: 0" >
+                            <a id="backButton" role="button" href="/products" style="padding-top: 10px;  "  class="btn btn-outline-secondary backButton"><i class="material-icons">
+                                    keyboard_backspace
+                                </i>
+                            </a>
+
+                        </div>
                     </div>
-<div style="margin-top: 0" >
-                    <a id="backButton" role="button" href="/products" style="padding-top: 10px;  "  class="btn btn-outline-secondary backButton"><i class="material-icons">
-                        keyboard_backspace
-                    </i>
-                    </a>
 
-</div>
-                </div>
-@endif
-            </tr>
-
-        @endforeach
         {{-- x düzlemine kaydırma barı ekler --}}
         <div style="overflow-x:auto;" >
 
@@ -138,7 +138,6 @@ $agent = new Agent();
             background-color: white;
         }
     </style>
-
 
 @endsection
 
