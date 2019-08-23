@@ -12,7 +12,6 @@ use App\Product;
 
 
 
-
     {{--  BU ALAN EKLENMİŞ ÜRÜNLERİ GÖSTEREN BİR TABLO İÇERİR --}}
 
 
