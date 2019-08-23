@@ -58,115 +58,122 @@ use Illuminate\Support\Facades\Auth;
 
     @if($agent->isMobile()==0)
 
-    <div class="topic" id="topic">
-        <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
-    </div>
-
-    <div class="content" id="content">
-
-{{-- x düzlemine kaydırma barı ekler --}}
-        <div style="overflow-x:auto;" >
-
-
-            <table class="table" id="productsTable">
-                {{--          <table class="table" id="productsBaslik">--}}
-                <thead class="thead-dark" >
-                <tr>
-                    <th scope="col">Sıra</th>
-                    <th scope="col">id</th>
-                    <th scope="col">Ürün adı</th>
-                    <th scope="col">Ürün detayları</th>
-                    <th scope="col">Marka</th>
-                    <th scope="col">Stok miktarı</th>
-
-                    <th scope="col">İşlem</th>
-                    <th></th>
-
-                </tr>
-                </thead>
-
-
-
-
-
-                <?php $sıra = 1 ?>
-                @foreach($products as $product)
-
-                    <tr
-
-                    >
-
-                        <th scope="row">{{$sıra++}} </th>
-                        <td>{{$product->id}} </td>
-                        <td
-                                @if($product->amount==0)
-                                style="color: red"
-                                @endif
-
-                                @if($product->amount>=100)
-                                style="color: green"
-                                @endif  style="word-break: break-word;">{{$product->productName}}</td>
-                        <td style=" word-break: break-all;">{{$product->description}}</td>
-                        <td>{{$product->company}}</td>
-                        <td
-
-
-                        >{{$product->amount}}</td>
-
-                        <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
-                        <td >
-                       <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
-                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                class="btn btn-success" role="button">Satın Al
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                @endforeach
-
-
-
-                <style>
-                    .squareRed {
-                        background: red;
-                        width: 20px;
-                        height: 20px;
-                    } .squareGreen {
-                        background: green;
-                        width: 20px;
-                        height: 20px;
-                    }
-
-                </style>
-                <?php $sayı = $sıra-1 ?>
-
-                <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
-
-            </table>
-            <br>
-            <div class="d-flex flex-wrap">
-
-                <div class= "d-flex flex-wrap">
-                    <div class="squareRed">
-
-                    </div>
-                    <div><a style="padding-left: 1rem" >: Stok Tükenmiş</a></div>
-
-                </div>
-                <div style="padding-left: 2rem"  class= "d-flex flex-wrap">
-                    <div class="squareGreen">
-
-                    </div>
-                    <div><a  style="padding-left: 1rem" >: 100'den fazla stok mevcut</a></div>
-
-                </div>
-            </div>
+        <div class="topic" id="topic">
+            <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
         </div>
 
-    </div>
-@endif
+        <div class="content" id="content">
+
+            {{-- x düzlemine kaydırma barı ekler --}}
+            <div style="overflow-x:auto;" >
+
+
+                <table class="table" id="productsTable">
+                    {{--          <table class="table" id="productsBaslik">--}}
+                    <thead class="thead-dark" >
+                    <tr>
+                        <th scope="col">Sıra</th>
+                        <th scope="col">id</th>
+                        <th scope="col">Ürün adı</th>
+                        <th scope="col">Ürün detayları</th>
+                        <th scope="col">Marka</th>
+                        <th scope="col">Stok miktarı</th>
+
+                        <th scope="col">İşlem</th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+
+
+
+
+
+                    <?php $sıra = 1 ?>
+                    @foreach($products as $product)
+
+                        <tr
+
+                        >
+
+                            <th scope="row">{{$sıra++}} </th>
+                            <td>{{$product->id}} </td>
+                            <td
+                                    @if($product->amount==0)
+                                    style="color: red"
+                                    @endif
+
+                                    @if($product->amount>=100)
+                                    style="color: green"
+                                    @endif  style="word-break: break-word;">{{$product->productName}}</td>
+                            <td style=" word-break: break-all;">{{$product->description}}</td>
+                            <td>{{$product->company}}</td>
+                            <td
+                                    @if($product->amount==0)
+                                    style="color: red"
+                                    @endif
+
+                                    @if($product->amount>=100)
+                                    style="color: green"
+                                    @endif
+
+
+                            >{{$product->amount}}</td>
+
+                            <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
+                            <td >
+                                <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                   class="btn btn-success" role="button">Satın Al
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                    @endforeach
+
+
+
+                    <style>
+                        .squareRed {
+                            background: red;
+                            width: 20px;
+                            height: 20px;
+                        } .squareGreen {
+                              background: green;
+                              width: 20px;
+                              height: 20px;
+                          }
+
+                    </style>
+                    <?php $sayı = $sıra-1 ?>
+
+                    <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
+
+                </table>
+                <br>
+                <div class="d-flex flex-wrap">
+
+                    <div class= "d-flex flex-wrap">
+                        <div class="squareRed">
+
+                        </div>
+                        <div><a style="padding-left: 1rem" >: Stok Tükenmiş</a></div>
+
+                    </div>
+                    <div style="padding-left: 2rem"  class= "d-flex flex-wrap">
+                        <div class="squareGreen">
+
+                        </div>
+                        <div><a  style="padding-left: 1rem" >: 100'den fazla stok mevcut</a></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    @endif
 
     @if($agent->isMobile())
 
@@ -188,7 +195,7 @@ use Illuminate\Support\Facades\Auth;
 
                         <th scope="col">Ürün adı</th>
 
-                       <th scope="col"> Ürün Detayları</th>
+                        <th scope="col"> Ürün Detayları</th>
 
 
                         <th scope="col">İşlem</th>
@@ -207,16 +214,26 @@ use Illuminate\Support\Facades\Auth;
                         <tr>
                             <th scope="row">{{$sıra++}} </th>
 
-                            <td style="word-break: break-word;">{{$product->productName}}</td>
+                            <td
+                                    @if($product->amount==0)
+                                    style="color: red"
+                                    @endif
+
+                                    @if($product->amount>=100)
+                                    style="color: green"
+                                    @endif
+
+                                    style="word-break: break-word;">{{$product->productName}}</td>
                             <td style=" word-break: break-all;">{{$product->description}}</td>
 
 
-                            <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
-                            <td><a
-                                @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
-                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                class="btn btn-success" role="button">Satın Al</a>
+                            <td><a style="width: 6rem"
+                                   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                   @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                   class="btn btn-success" role="button">Satın Al</a>
                             </td>
+
+                            <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
 
                         </tr>
 
@@ -226,14 +243,55 @@ use Illuminate\Support\Facades\Auth;
                     <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
 
                 </table>
+                <br>
+
+                <div class="row">
+                    <div class="col-1">
+
+                        <div class="squareRed">
+
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <a style="padding-left: 1rem" >: Stok Tükenmiş</a>
+
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-1">
+
+                        <div class="squareGreen">
+
+                        </div>
+                    </div>
+                    <div class="col-9">
+
+                        <div><a  style="padding-left: 1rem" >: 100'den fazla stok mevcut</a></div>
+                    </div>
+                </div>
+
+
+
+
+                <style>
+                    .squareRed {
+                        background: red;
+                        width: 20px;
+                        height: 20px;
+                    } .squareGreen {
+                          background: green;
+                          width: 20px;
+                          height: 20px;
+                      }
+
+                </style>
             </div>
 
         </div>
 
-        @endif
+    @endif
 
-{{--
-    <script>
+    {{--
+        <script>
         function SomeDeleteRowFunction() {
             // event.target will be the input element.
             var td = event.target.parentNode;
@@ -242,7 +300,7 @@ use Illuminate\Support\Facades\Auth;
 
 
         }
-    </script>--}}
+        </script>--}}
 
 
 
@@ -352,34 +410,34 @@ use Illuminate\Support\Facades\Auth;
     </style>
 
     <script>
-         function girisYap() {
+        function girisYap() {
 
 
-             swal("Bu işlem için izniniz yok! Giriş yapınız.", {
-                 icon: "warning",
-                 buttons: {
-                     catch: {
-                         text: "Giriş Yap",
-                         value: "catch",
-                     },
-                     cancel: "Geri",
+            swal("Bu işlem için izniniz yok! Giriş yapınız.", {
+                icon: "warning",
+                buttons: {
+                    catch: {
+                        text: "Giriş Yap",
+                        value: "catch",
+                    },
+                    cancel: "Geri",
 
 
-                 },
-             })
-                 .then((value) => {
-                     switch (value) {
+                },
+            })
+                .then((value) => {
+                    switch (value) {
 
 
 
-                         case "catch":
-                             window.location = "/login";
-                             break;
-
-                         default:
+                        case "catch":
+                            window.location = "/login";
                             break;
-                     }
-                 });
+
+                        default:
+                            break;
+                    }
+                });
 
 
         }

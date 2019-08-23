@@ -52,7 +52,7 @@ use App\Product;
         </form>
 
                     <br>
-                    <a role = "button" id="submitButton" class="btn btn-success btn-block">Satın Al</a>
+                    <a style="color: white;" role = "button" id="submitButton" class="btn btn-success btn-block">Satın Al</a>
                     <div style="alignment: right" >
                         <br>
                         <div style="margin-bottom: 0">
