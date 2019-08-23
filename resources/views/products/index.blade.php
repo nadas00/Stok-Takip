@@ -78,7 +78,7 @@ use Illuminate\Support\Facades\Auth;
                     <th scope="col">Ürün detayları</th>
                     <th scope="col">Marka</th>
                     <th scope="col">Stok miktarı</th>
-                    <th scope="col">Stok Aktifliği</th>
+
                     <th scope="col">İşlem</th>
                     <th></th>
 
@@ -92,20 +92,34 @@ use Illuminate\Support\Facades\Auth;
                 <?php $sıra = 1 ?>
                 @foreach($products as $product)
 
-                    <tr>
+                    <tr
+
+                    >
+
                         <th scope="row">{{$sıra++}} </th>
                         <td>{{$product->id}} </td>
-                        <td style="word-break: break-word;">{{$product->productName}}</td>
+                        <td
+                                @if($product->amount==0)
+                                style="color: red"
+                                @endif
+                             
+                                @if($product->amount>=100)
+                                style="color: green"
+                                @endif  style="word-break: break-word;">{{$product->productName}}</td>
                         <td style=" word-break: break-all;">{{$product->description}}</td>
                         <td>{{$product->company}}</td>
-                        <td>{{$product->amount}}</td>
-                        <td>{{$product->available ? 'Yes' : 'No'}}</td>
+                        <td
+
+
+                        >{{$product->amount}}</td>
+
                         <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
                         <td >
-                            <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                       <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
                                 @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
                                 class="btn btn-success" role="button">Satın Al
                             </a>
+
                         </td>
 
                     </tr>
