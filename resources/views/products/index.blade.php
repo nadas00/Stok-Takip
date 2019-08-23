@@ -102,7 +102,7 @@ use Illuminate\Support\Facades\Auth;
                                 @if($product->amount==0)
                                 style="color: red"
                                 @endif
-                             
+
                                 @if($product->amount>=100)
                                 style="color: green"
                                 @endif  style="word-break: break-word;">{{$product->productName}}</td>
@@ -125,11 +125,44 @@ use Illuminate\Support\Facades\Auth;
                     </tr>
 
                 @endforeach
+
+
+
+                <style>
+                    .squareRed {
+                        background: red;
+                        width: 20px;
+                        height: 20px;
+                    } .squareGreen {
+                        background: green;
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                </style>
                 <?php $sayı = $sıra-1 ?>
 
                 <p style="font-weight: lighter; padding-left: 5px"> 1 - {{$sayı}} arası sonuçlar listeleniyor..</p>
 
             </table>
+            <br>
+            <div class="d-flex flex-wrap">
+
+                <div class= "d-flex flex-wrap">
+                    <div class="squareRed">
+
+                    </div>
+                    <div><a style="padding-left: 1rem" >: Stok Tükenmiş</a></div>
+
+                </div>
+                <div style="padding-left: 2rem"  class= "d-flex flex-wrap">
+                    <div class="squareGreen">
+
+                    </div>
+                    <div><a  style="padding-left: 1rem" >: 100'den fazla stok mevcut</a></div>
+
+                </div>
+            </div>
         </div>
 
     </div>

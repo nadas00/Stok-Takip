@@ -21,12 +21,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/products/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="104" column="29" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
+            <state relative-caret-position="307">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="e#2750#2818#0#HTML" expanded="true" />
                 <element signature="e#2861#3009#0#HTML" expanded="true" />
                 <element signature="e#3276#3295#0#HTML" expanded="true" />
+                <element signature="e#4132#4158#0#HTML" expanded="true" />
+                <element signature="e#4230#4256#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -479,12 +481,12 @@
       <workItem from="1566453168599" duration="1858000" />
       <workItem from="1566458201027" duration="6310000" />
       <workItem from="1566539258672" duration="582000" />
-      <workItem from="1566542770494" duration="5988000" />
+      <workItem from="1566542770494" duration="6481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216234000" />
+    <option name="totallyTimeSpent" value="216727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -844,12 +846,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/products/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="104" column="29" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
+        <state relative-caret-position="307">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="e#2750#2818#0#HTML" expanded="true" />
             <element signature="e#2861#3009#0#HTML" expanded="true" />
             <element signature="e#3276#3295#0#HTML" expanded="true" />
+            <element signature="e#4132#4158#0#HTML" expanded="true" />
+            <element signature="e#4230#4256#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
