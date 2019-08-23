@@ -2,7 +2,11 @@
 <?php
 use Jenssegers\Agent\Agent;
 $agent = new Agent();
+
+use App\Product;
+
 ?>
+
 
 @section('content')
 
@@ -36,16 +40,20 @@ $agent = new Agent();
 
                     <hr>
                     <br>
-                    <select class="form-control" name="company">
+
+        <form  >
+            {{ csrf_field() }}
+                    <select id="amountSelector" class="form-control" name="company">
                         <option value="" selected disabled hidden>Ürün adedi seçiniz</option>
                         <?php $i = 1 ?>
                         @for($i=1; $i< $stokMiktari =  $productSelected->amount+1; $i++)
                             <option>{{$i}}</option>
                         @endfor
                     </select>
+        </form>
 
                     <br>
-                    <button class="btn btn-success btn-block">Satın Al</button>
+                    <a role = "button" id="submitButton" class="btn btn-success btn-block">Satın Al</a>
                     <div style="alignment: right" >
                         <br>
                         <div style="margin-bottom: 0">
@@ -138,6 +146,24 @@ $agent = new Agent();
             background-color: white;
         }
     </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+            //şuanki url adresine selector değerini ekleyip, yeni oluşturulan adrese yönlendiriliyor.
+
+            $("#submitButton").click(function () {
+                var selectedAmount = $("#amountSelector option:selected").val();
+                window.location.href = window.location.href+"/"+selectedAmount;
+            });
+
+
+        });
+    </script>
+
+
+
 
 @endsection
 

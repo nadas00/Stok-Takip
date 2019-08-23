@@ -101,8 +101,8 @@ use Illuminate\Support\Facades\Auth;
                         <td>{{$product->amount}}</td>
                         <td>{{$product->available ? 'Yes' : 'No'}}</td>
                         <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
-                        <td>
-                            <a  @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                        <td >
+                            <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
                                 @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
                                 class="btn btn-success" role="button">Satın Al
                             </a>

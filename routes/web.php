@@ -144,6 +144,21 @@ Route::get('/products/buy/{id}', function ($id) {
 });
 
 
+Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
+
+
+  $currAmount =  Product::where('id',$id)->get()->first()->amount;
+  $newAmount = $currAmount - $amount;
+
+      App\Product::where('id', $id)
+          ->update(['amount' => $newAmount]);
+
+
+    redirect("/products");
+
+});
+
+
 
 
 
