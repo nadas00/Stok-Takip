@@ -227,7 +227,7 @@ use Illuminate\Support\Facades\Auth;
 
 
                             <td><a style="width: 6rem"
-                                   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                   @if(\Illuminate\Support\Facades\Auth::user()) href="javascript:secimYap()" @endif
                                    @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
                                    class="btn btn-success" role="button">Güncelle</a>
                             </td>
@@ -452,12 +452,12 @@ function secimYap() {
             icon: "warning",
             buttons: {
                 catch: {
-                    text: "Ekle",
+                    text: "Stok Arttır",
                     value: "Ekle",
 
                 },
                 defeat: {
-                    text: "Çıkar",
+                    text: "Stok Düşür",
                     value: "defeat",
                 },
                 cancel: "Geri",

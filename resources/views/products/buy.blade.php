@@ -25,7 +25,7 @@ use App\Product;
 
 
     <div class="topic" id="topic">
-        <h3 id="productsSayfaBaslik">Satın Al</h3>
+        <h3 id="productsSayfaBaslik">Stok Düşür</h3>
     </div>
 
     <div class="content" id="content">
