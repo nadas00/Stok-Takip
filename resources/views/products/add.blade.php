@@ -33,39 +33,42 @@ use App\Product;
 
 
 
-                    <br>
-                    <h4>Stok miktarını azaltmak istediğiniz ürün : " {{$productSelected->productName}}"</h4>
-                    <a>Stok miktarını azaltmak istediğiniz ürünün miktarı:  {{$productSelected->amount}}</a>
+        <br>
+        <h4>Stok miktarını arttırmak istediğiniz ürün : " {{$productSelected->productName}}"</h4>
+        <a>Stok miktarını arttırmak istediğiniz ürünün miktarı:  {{$productSelected->amount}}</a>
 
-                    <hr>
-                    <br>
+        <hr>
+        <br>
 
         <form  >
             {{ csrf_field() }}
-                    <select id="amountSelector" class="form-control" name="company">
-                        <option value="" selected disabled hidden>Ürün adedi seçiniz</option>
-                        <?php $i = 1 ?>
-                        @for($i=1; $i< $stokMiktari =  $productSelected->amount+1; $i++)
-                            <option>{{$i}}</option>
-                        @endfor
-                    </select>
+
+
+            {{--eklenecek ürün adedi girilecek bir form gelecek--}}
+
+
+            <table>
+        <input class="form-control" id="uintTextBox">
+
+            </table>
+
         </form>
 
-                    <br>
-                    <a style="color: white;" role = "button" id="submitButton" class="btn btn-success btn-block">Stok Düşür</a>
-                    <div style="alignment: right" >
-                        <br>
-                        <div style="margin-bottom: 0">
-                            <p style="font-style: italic; padding-bottom: 1px">Satın alma sayfasına geri dön</p>
-                        </div>
-                        <div style="margin-top: 0" >
-                            <a id="backButton" role="button" href="/products" style="padding-top: 10px;  "  class="btn btn-outline-secondary backButton"><i class="material-icons">
-                                    keyboard_backspace
-                                </i>
-                            </a>
+        <br>
+        <a style="color: white;" role = "button" id="submitButton" class="btn btn-success btn-block">Stok Arttır</a>
+        <div style="alignment: right" >
+            <br>
+            <div style="margin-bottom: 0">
+                <p style="font-style: italic; padding-bottom: 1px">Satın alma sayfasına geri dön</p>
+            </div>
+            <div style="margin-top: 0" >
+                <a id="backButton" role="button" href="/products" style="padding-top: 10px;  "  class="btn btn-outline-secondary backButton"><i class="material-icons">
+                        keyboard_backspace
+                    </i>
+                </a>
 
-                        </div>
-                    </div>
+            </div>
+        </div>
 
         {{-- x düzlemine kaydırma barı ekler --}}
         <div style="overflow-x:auto;" >
@@ -153,7 +156,7 @@ use App\Product;
             //şuanki url adresine selector değerini ekleyip, yeni oluşturulan adrese yönlendiriliyor.
 
             $("#submitButton").click(function () {
-                var selectedAmount = $("#amountSelector option:selected").val();
+                var selectedAmount = document.getElementById("uintTextBox").value;
                 window.location.href = window.location.href+"/"+selectedAmount;
             });
 
@@ -161,6 +164,32 @@ use App\Product;
         });
     </script>
 
+
+
+
+    <script>
+        // Restricts input for the given textbox to the given inputFilter.
+        function setInputFilter(textbox, inputFilter) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                textbox.addEventListener(event, function() {
+                    if (inputFilter(this.value)) {
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    }
+                });
+            });
+        }
+
+
+        // Install input filters.
+        setInputFilter(document.getElementById("uintTextBox"), function(value) {
+            return /^\d*$/.test(value); });
+
+    </script>
 
 
 

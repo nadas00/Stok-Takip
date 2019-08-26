@@ -78,7 +78,6 @@ use Illuminate\Support\Facades\Auth;
                         <th scope="col">Ürün detayları</th>
                         <th scope="col">Marka</th>
                         <th scope="col">Stok miktarı</th>
-
                         <th scope="col">İşlem</th>
                         <th></th>
 
@@ -122,9 +121,9 @@ use Illuminate\Support\Facades\Auth;
 
                             <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
                             <td >
-                                <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
+                                <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user())  href="javascript:secimYap()" @endif
                                 @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                   class="btn btn-success" role="button">Satın Al
+                                   class="btn btn-success" role="button">Güncelle
                                 </a>
 
                             </td>
@@ -230,7 +229,7 @@ use Illuminate\Support\Facades\Auth;
                             <td><a style="width: 6rem"
                                    @if(\Illuminate\Support\Facades\Auth::user()) href="{{ url('/products/buy/'.$product->id)}}" @endif
                                    @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                   class="btn btn-success" role="button">Satın Al</a>
+                                   class="btn btn-success" role="button">Güncelle</a>
                             </td>
 
                             <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
@@ -443,6 +442,50 @@ use Illuminate\Support\Facades\Auth;
         }
     </script>
 
+
+    <script>
+        //swift alert
+function secimYap() {
+
+
+        swal("İşlem seçiniz", {
+            icon: "warning",
+            buttons: {
+                catch: {
+                    text: "Ekle",
+                    value: "Ekle",
+
+                },
+                defeat: {
+                    text: "Çıkar",
+                    value: "defeat",
+                },
+                cancel: "Geri",
+
+
+            },
+        })
+            .then((value) => {
+                switch (value) {
+
+                    case "defeat":
+                        window.location.href  = "{{ url('/products/buy/'.$product->id)}}";
+                        break;
+
+                    case "Ekle":
+                        window.location.href  = "{{ url('/products/add/'.$product->id)}}";
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+
+
+
+
+}
+    </script>
 
 
 @endsection

@@ -1,5 +1,7 @@
 
-
+<title>Staj.Site</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -11,12 +13,16 @@
     <link rel="stylesheet" href="sweetalert2.min.css">
 
 
+
+
+
+
 <body>
 
 <script>
     window.onload=function(){
         Swal.fire({
-            text: "Alışveriş işleminiz başarıyla tamamlandı!",
+            text: "Güncelleme işleminiz başarıyla tamamlandı!",
             confirmButtonText: "Tamam",
             type: "success",
         }).then(function () {
@@ -41,3 +47,4 @@
             height: auto;
         }
     </style>
+

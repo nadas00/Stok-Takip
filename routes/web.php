@@ -166,3 +166,30 @@ Route::get('/basarili', function () {
     return view("products.basarili");
 
 });
+
+
+
+//add route'ları
+
+Route::get('/products/add/{id}', function ($id) {
+    $productSelected = Product::where('id',$id)->get()->first->id;
+
+    return view("products.add",compact('productSelected',$productSelected,'id',$id));
+
+});
+
+
+//input formundan amount bilgisi buraya gönderilecek
+Route::get('/products/add/{id}/{amount}', function ($id,$amount) {
+
+    $currAmount =  Product::where('id',$id)->get()->first()->amount;
+    $newAmount = $currAmount + $amount;
+
+
+    App\Product::where('id', $id)
+        ->update(['amount' => $newAmount]);
+
+
+    return redirect("/basarili");
+
+});
