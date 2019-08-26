@@ -80,6 +80,7 @@ use Illuminate\Support\Facades\Auth;
                         <th scope="col">Stok miktarı</th>
                         <th scope="col">İşlem</th>
                         <th></th>
+                        <th></th>
 
                     </tr>
                     </thead>
@@ -121,9 +122,20 @@ use Illuminate\Support\Facades\Auth;
 
                             <td><a href="{{ url('/products/delete/'.$product->id)}}"  class="btn btn-danger" role="button">Sil</a>
                             <td >
-                                <a style="width: 6rem"   @if(\Illuminate\Support\Facades\Auth::user())  href="javascript:secimYap()" @endif
-                                @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                   class="btn btn-success" role="button">Güncelle
+                                <a style="width: 6rem"
+
+                                   @if(\Illuminate\Support\Facades\Auth::user())   href={{url('/products/add/'.$product->id)}} @endif
+                                   @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                   class="btn btn-success" role="button">Stok Ekle
+                                </a>
+
+                            </td>
+                            <td >
+                                <a style="width: 6rem"
+
+                                   @if(\Illuminate\Support\Facades\Auth::user())  href={{url('/products/buy/'.$product->id)}} @endif
+                                   @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                   class="btn btn-warning" role="button">Stok Sil
                                 </a>
 
                             </td>
@@ -199,6 +211,7 @@ use Illuminate\Support\Facades\Auth;
 
                         <th scope="col">İşlem</th>
                         <th></th>
+                        <th></th>
 
                     </tr>
                     </thead>
@@ -226,10 +239,23 @@ use Illuminate\Support\Facades\Auth;
                             <td style=" word-break: break-all;">{{$product->description}}</td>
 
 
-                            <td><a style="width: 6rem"
-                                   @if(\Illuminate\Support\Facades\Auth::user()) href="javascript:secimYap()" @endif
+                            <td >
+                                <a style="width: 6rem"
+
+                                   @if(\Illuminate\Support\Facades\Auth::user())   href={{url('/products/add/'.$product->id)}} @endif
                                    @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
-                                   class="btn btn-success" role="button">Güncelle</a>
+                                   class="btn btn-success" role="button">Stok Ekle
+                                </a>
+
+                            </td>
+                            <td >
+                                <a style="width: 6rem"
+
+                                   @if(\Illuminate\Support\Facades\Auth::user())  href={{url('/products/buy/'.$product->id)}} @endif
+                                   @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
+                                   class="btn btn-warning" role="button">Stok Sil
+                                </a>
+
                             </td>
 
                             <td><a href="{{ url('/products/delete/'.$product->id)}}" class="btn btn-danger" role="button">Sil</a>
@@ -440,53 +466,9 @@ use Illuminate\Support\Facades\Auth;
 
 
         }
-    </script>
 
 
-    <script>
-        //swift alert
-function secimYap() {
-
-
-        swal("İşlem seçiniz", {
-            icon: "warning",
-            buttons: {
-                catch: {
-                    text: "Stok Arttır",
-                    value: "Ekle",
-
-                },
-                defeat: {
-                    text: "Stok Düşür",
-                    value: "defeat",
-                },
-                cancel: "Geri",
-
-
-            },
-        })
-            .then((value) => {
-                switch (value) {
-
-                    case "defeat":
-                        window.location.href  = "{{ url('/products/buy/'.$product->id)}}";
-                        break;
-
-                    case "Ekle":
-                        window.location.href  = "{{ url('/products/add/'.$product->id)}}";
-                        break;
-
-                    default:
-                        break;
-                }
-            });
-
-
-
-
-}
-    </script>
-
+ </script>
 
 @endsection
 

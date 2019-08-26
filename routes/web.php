@@ -14,7 +14,7 @@
 use App\Product;
 
 Route::get('/', function () {
-    return redirect("/owners");
+    return redirect("/products");
 });
 
 
