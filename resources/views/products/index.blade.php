@@ -421,13 +421,6 @@ use Illuminate\Support\Facades\Auth;
             font-size: 80px;
         }
 
-        .link_404 {
-            color: #fff !important;
-            padding: 10px 100px;
-            background: #39ac31;
-            margin: 20px 0;
-            display: inline-block;
-        }
 
         .contant_box_404 {
             margin-top: -50px;

@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $validatedData = $request->validate([
             'productName' => 'required|unique:products|max:50',
-            'amount' => 'required|numeric|max:1000',
+            'amount' => 'required|numeric|max:10000',
             'company' => 'required',
             'available' => 'required',
             'description' => 'required|max:500',

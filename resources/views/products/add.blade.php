@@ -22,7 +22,18 @@ use App\Product;
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
+{{--sweet alert--}}
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
+    {{--sweet alert--}}
 
     <div class="topic" id="topic">
         <h3 id="productsSayfaBaslik">Stok Arttır</h3>
@@ -48,7 +59,7 @@ use App\Product;
 
 
             <table>
-        <input class="form-control" id="uintTextBox">
+        <input class="form-control" id="uintTextBox" inputmode="numeric"  placeholder="Miktar giriniz...">
 
             </table>
 
@@ -157,7 +168,23 @@ use App\Product;
 
             $("#submitButton").click(function () {
                 var selectedAmount = document.getElementById("uintTextBox").value;
+
+
+                if(selectedAmount>9999){
+
+
+                    Swal.fire({
+                        title: "Tamamlanamadı!",
+                        text: "Tek seferde ekleyebileceğiniz stok miktarı en fazla"+' "9999" '+"olabilir.",
+                        confirmButtonText: "Tamam",
+                        type: "warning",
+                    })
+
+
+                }else {
+
                 window.location.href = window.location.href+"/"+selectedAmount;
+                }
             });
 
 

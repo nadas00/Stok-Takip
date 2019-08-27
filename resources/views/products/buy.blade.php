@@ -21,6 +21,11 @@ use App\Product;
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    {{--form js validation için kaynak linkleri--}}
+
+
+
+    {{--form js validation için kaynak linkleri--}}
 
 
 
@@ -42,17 +47,33 @@ use App\Product;
 
         <form  >
             {{ csrf_field() }}
-                    <select id="amountSelector" class="form-control" name="company">
-                        <option value="" selected disabled hidden>Ürün adedi seçiniz</option>
-                        <?php $i = 1 ?>
-                        @for($i=1; $i< $stokMiktari =  $productSelected->amount+1; $i++)
-                            <option>{{$i}}</option>
-                        @endfor
-                    </select>
+
+
+            {{--eklenecek ürün adedi girilecek bir form gelecek--}}
+
+
+            <table>
+                <input class="form-control" inputmode="numeric" id="uintTextBox" placeholder="Miktar giriniz...">
+
+            </table>
+
         </form>
+
 
                     <br>
                     <a style="color: white;" role = "button" id="submitButton" class="btn btn-success btn-block">Stok Düşür</a>
+
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
                     <div style="alignment: right" >
                         <br>
                         <div style="margin-bottom: 0">
@@ -146,6 +167,18 @@ use App\Product;
         }
     </style>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+
+
     <script>
 
         $(document).ready(function () {
@@ -153,8 +186,26 @@ use App\Product;
             //şuanki url adresine selector değerini ekleyip, yeni oluşturulan adrese yönlendiriliyor.
 
             $("#submitButton").click(function () {
-                var selectedAmount = $("#amountSelector option:selected").val();
-                window.location.href = window.location.href+"/"+selectedAmount;
+
+                {{\App\Product::where("id",$id)->get()->first()->amount}}
+                var selectedAmount = document.getElementById("uintTextBox").value;
+                if(selectedAmount>9999){
+
+
+                        Swal.fire({
+                            title: "Tamamlanamadı!",
+                            text: "Tek seferde düşürebileceğiniz stok miktarı en fazla"+' "9999" '+"olabilir.",
+                            confirmButtonText: "Tamam",
+                            type: "warning",
+                        })
+
+
+                }else {
+                    window.location.href = window.location.href+"/"+selectedAmount;
+                }
+
+
+
             });
 
 
@@ -162,6 +213,31 @@ use App\Product;
     </script>
 
 
+
+
+    <script>
+        // Restricts input for the given textbox to the given inputFilter.
+        function setInputFilter(textbox, inputFilter) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                textbox.addEventListener(event, function() {
+                    if (inputFilter(this.value)) {
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    }
+                });
+            });
+        }
+
+
+        // Install input filters.
+        setInputFilter(document.getElementById("uintTextBox"), function(value) {
+            return /^\d*$/.test(value); });
+
+    </script>
 
 
 @endsection

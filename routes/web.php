@@ -150,6 +150,11 @@ Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
   $currAmount =  Product::where('id',$id)->get()->first()->amount;
   $newAmount = $currAmount - $amount;
 
+  if ($newAmount<0){
+      $hatamesaji= "Ürün stok miktarı sıfırın altında olamaz!";
+      return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
+  }else{
+
 
       App\Product::where('id', $id)
           ->update(['amount' => $newAmount]);
@@ -159,6 +164,7 @@ Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
 
 
 
+}
 });
 
 Route::get('/basarili', function () {
@@ -185,11 +191,16 @@ Route::get('/products/add/{id}/{amount}', function ($id,$amount) {
     $currAmount =  Product::where('id',$id)->get()->first()->amount;
     $newAmount = $currAmount + $amount;
 
+    if($newAmount>100000){
+        $hatamesaji= "Stok miktarı en fazla 100000 olabilir.";
+        return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
+    }else {
 
-    App\Product::where('id', $id)
-        ->update(['amount' => $newAmount]);
+
+        App\Product::where('id', $id)
+            ->update(['amount' => $newAmount]);
 
 
-    return redirect("/basarili");
-
+        return redirect("/basarili");
+    }
 });

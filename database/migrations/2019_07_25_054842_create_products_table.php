@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('productName');
             $table->string('company');
             $table->longText('description');
-            $table->float('amount');
+            $table->float('amount')->unsigned();
             $table->boolean('available');
             $table->integer("owner_id")->unsigned()->nullable();
             $table->timestamps();
