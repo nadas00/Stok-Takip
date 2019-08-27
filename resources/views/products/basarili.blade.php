@@ -22,7 +22,8 @@
 <script>
     window.onload=function(){
         Swal.fire({
-            text: "Güncelleme işleminiz başarıyla tamamlandı!",
+            title: "Tamamlandı!",
+            text: "{{$mesaj}}",
             confirmButtonText: "Tamam",
             type: "success",
         }).then(function () {

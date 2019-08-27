@@ -159,19 +159,14 @@ Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
       App\Product::where('id', $id)
           ->update(['amount' => $newAmount]);
 
-
-    return redirect("/basarili");
+$mesaj = $amount." ürün stoktan başarılı şekilde silindi.";
+    return view("products.basarili",compact('mesaj',$mesaj));
 
 
 
 }
 });
 
-Route::get('/basarili', function () {
-
-    return view("products.basarili");
-
-});
 
 
 
@@ -200,7 +195,7 @@ Route::get('/products/add/{id}/{amount}', function ($id,$amount) {
         App\Product::where('id', $id)
             ->update(['amount' => $newAmount]);
 
-
-        return redirect("/basarili");
+$mesaj = $amount." ürün stoğa başarılı şekilde eklendi.";
+        return view("products.basarili",compact('mesaj',$mesaj));
     }
 });
