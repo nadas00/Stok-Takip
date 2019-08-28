@@ -42,6 +42,73 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/match/create', 'Match@create');
 
 
+
+    Route::get('/products/buy/{id}', function ($id) {
+        $productSelected = Product::where('id',$id)->get()->first->id;
+
+        return view("products.buy",compact('productSelected',$productSelected,'id',$id));
+
+    });
+
+    Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
+
+
+        $currAmount =  Product::where('id',$id)->get()->first()->amount;
+        $newAmount = $currAmount - $amount;
+
+        if ($newAmount<0){
+            $hatamesaji= "Ürün stok miktarı sıfırın altında olamaz!";
+            return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
+        }else{
+
+
+            App\Product::where('id', $id)
+                ->update(['amount' => $newAmount]);
+
+            $mesaj = $amount." ürün stoktan başarılı şekilde silindi.";
+            return view("products.basarili",compact('mesaj',$mesaj));
+
+
+
+        }
+    });
+
+
+
+
+//add route'ları
+
+    Route::get('/products/add/{id}', function ($id) {
+        $productSelected = Product::where('id',$id)->get()->first->id;
+
+        return view("products.add",compact('productSelected',$productSelected,'id',$id));
+
+    });
+
+
+//input formundan amount bilgisi buraya gönderilecek
+    Route::get('/products/add/{id}/{amount}', function ($id,$amount) {
+
+        $currAmount =  Product::where('id',$id)->get()->first()->amount;
+        $newAmount = $currAmount + $amount;
+
+        if($newAmount>100000){
+            $hatamesaji= "Stok miktarı en fazla 100000 olabilir.";
+            return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
+        }else {
+
+
+            App\Product::where('id', $id)
+                ->update(['amount' => $newAmount]);
+
+            $mesaj = $amount." ürün stoğa başarılı şekilde eklendi.";
+            return view("products.basarili",compact('mesaj',$mesaj));
+        }
+    });
+
+
+
+
 });
 
 
@@ -134,68 +201,3 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
-
-
-Route::get('/products/buy/{id}', function ($id) {
-   $productSelected = Product::where('id',$id)->get()->first->id;
-
-    return view("products.buy",compact('productSelected',$productSelected,'id',$id));
-
-});
-
-
-Route::get('/products/buy/{id}/{amount}', function ($id,$amount) {
-
-
-  $currAmount =  Product::where('id',$id)->get()->first()->amount;
-  $newAmount = $currAmount - $amount;
-
-  if ($newAmount<0){
-      $hatamesaji= "Ürün stok miktarı sıfırın altında olamaz!";
-      return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
-  }else{
-
-
-      App\Product::where('id', $id)
-          ->update(['amount' => $newAmount]);
-
-$mesaj = $amount." ürün stoktan başarılı şekilde silindi.";
-    return view("products.basarili",compact('mesaj',$mesaj));
-
-
-
-}
-});
-
-
-
-
-//add route'ları
-
-Route::get('/products/add/{id}', function ($id) {
-    $productSelected = Product::where('id',$id)->get()->first->id;
-
-    return view("products.add",compact('productSelected',$productSelected,'id',$id));
-
-});
-
-
-//input formundan amount bilgisi buraya gönderilecek
-Route::get('/products/add/{id}/{amount}', function ($id,$amount) {
-
-    $currAmount =  Product::where('id',$id)->get()->first()->amount;
-    $newAmount = $currAmount + $amount;
-
-    if($newAmount>100000){
-        $hatamesaji= "Stok miktarı en fazla 100000 olabilir.";
-        return view("products.basarisiz",compact('hatamesaji',$hatamesaji));
-    }else {
-
-
-        App\Product::where('id', $id)
-            ->update(['amount' => $newAmount]);
-
-$mesaj = $amount." ürün stoğa başarılı şekilde eklendi.";
-        return view("products.basarili",compact('mesaj',$mesaj));
-    }
-});
