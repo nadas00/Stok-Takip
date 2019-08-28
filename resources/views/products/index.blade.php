@@ -131,7 +131,7 @@ use Illuminate\Support\Facades\Auth;
 
                             </td>
                             <td >
-                                <a style="width: 6rem"
+                                <a style="width: 6rem; "
 
                                    @if(\Illuminate\Support\Facades\Auth::user())  href={{url('/products/buy/'.$product->id)}} @endif
                                    @if(\Illuminate\Support\Facades\Auth::guest()) href="javascript:girisYap()" @endif
@@ -148,10 +148,12 @@ use Illuminate\Support\Facades\Auth;
 
                     <style>
                         .squareRed {
+                            border-radius: 40px;
                             background: red;
                             width: 20px;
                             height: 20px;
                         } .squareGreen {
+                                                      border-radius: 40px;
                               background: green;
                               width: 20px;
                               height: 20px;

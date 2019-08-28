@@ -23,10 +23,9 @@ $agent = new Agent();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-
-<nav class="navbar navbar-expand-md bg-dark navbar-dark" >
+<nav style="padding: 25px" class="navbar navbar-expand-md bg-dark navbar-dark" >
     <!-- Brand -->
-    <a class="navbar-brand" id="navName" href="#">asdad</a>
+    <a class="navbar-brand" id="navName" href="#">Stok Takip</a>
 
     <!-- Toggler/collapsibe Button -->
 
@@ -42,28 +41,45 @@ $agent = new Agent();
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/products/create">Ürün Kaydet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/products">Ürüleri Görüntüle</a>
+                <a class="nav-link" href="/products" >Ürüleri Görüntüle</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/match">İlişkileri Göster</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/products/create">Ürün Kaydet</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/owners/create">Stok Sahibi Ekle</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/match/create">Stok Sahibi Ata</a>
+            </li>
+
         </ul>
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="mailto:admin@staj.site?Subject=staj.site%20hakkında">Bizimle İletişime Geçin</a>
             </li>
+
+            @if (Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url('/logout') }}"> Çıkış Yap </a>
+                </li>
+            @endif
+            @if (Auth::guest())
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url('/login') }}"> Giriş Yap </a>
+                </li>
+            @endif
+
+
+
+
 
         </ul>
 
@@ -158,51 +174,163 @@ $agent = new Agent();
 <body>
 
 <div class="container">
+
+
     <div class="jumbotron">
-        <h1>My First Bootstrap Page</h1>
-        <p>Resize this responsive page to see the effect!</p>
+        <h1>Staj.site Tanıtım Sayfası</h1>
+        <p>Ziyaret etmek istediğiniz sayfanın tanıtım kartındaki git butonuna tıklayabilirsiniz.</p>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+
+    <div class="card-deck ">
+        <div class="card ">
+            <div class="card-body">
+            <h5 class="card-title">Ürünleri Görüntüle</h5>
+            <img class="card-img-top" src="https://i.hizliresim.com/yGj4Vy.jpg"  >
+
+
+                <p class="card-text">Bu bölümde kayıt edilen ürünler listelenir ve seçili ürün stok ekleme/çıkarma ve ürünü silme işlemleri
+                yapılabilir. Bu işlemler için kullanıcı girişi gereklidir. </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block" onclick="window.location.href='/products' ">Git</button></small>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kullanıcıları Görüntüle</h5>
+                <img class="card-img-top" src="https://i.hizliresim.com/P7GMr9.jpg"  >
+                <p class="card-text">Bu bölümde kayıt edilen kullanıcılar listelenir. Kullanıcı ismi ve kullanıcının profil tanımını buradan öğrenebilirsiniz.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block">Git</button></small>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kullanıcıları Görüntüle</h5>
+                <img class="card-img-top" src="https://i.hizliresim.com/lQ41bJ.jpg"  >
+                <p class="card-text">Bu bölümde kayıt edilen kullanıcılar listelenir. Kullanıcı ismi ve kullanıcının profil tanımını buradan öğrenebilirsiniz.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block">Git</button></small>
+            </div>
         </div>
+
+
+            </div>
+
+    <br>
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Ürün Ekle</h5>
+            <img class="card-img-top" src="https://i.hizliresim.com/QPyMLy.jpg" alt="Card image cap">
+
+
+                <p class="card-text">Bu sayfada ürün kaydı için bir form sayfası gösterilir.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block">Git</button></small>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kullanıcı Ekle</h5>
+                <img class="card-img-top" src="https://i.hizliresim.com/00ryoR.jpg" alt="Card image cap">
+
+
+                <p class="card-text">By sayfada kullanıcı kaydı için bir form sayfası gösterilir.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block">Git</button></small>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İlişki Ekle</h5>
+                <img class="card-img-top" src="https://i.hizliresim.com/lQ41bJ.jpg" alt="Card image cap">
+
+
+                <p class="card-text">Bu sayfada kullanıcı ve stok eşleştirmesi için bir form sayfası gösterilir.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button class=" btn btn-outline-success btn-block">Git</button></small>
+            </div>
+        </div>
+
+
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-    </div>
+
+
+
+
+
 </div>
 
+<br><br>
 </body>
+
+<div style="margin: 50px">
+
+</div>
+<div>
+
+
+    <div class="bg-dark" id="footer"><a style="font-weight: lighter">Hasan Çiftçi - staj.site &copy; </a><p style="font-weight: normal">Kayıtlar ziyaretçilere aittir.</p></div>
+</div>
 
 
 </html>
 
 
+<style>
+    #footer {
+        width: 100%;
+        height: 60px;
+
+        text-align: center;
+        padding: 10px;
+        margin-top: 50px;
+
+        color: rgb(230, 230, 220);
+        position: fixed;
+        bottom: 0px;
+    }
+    html {
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    body {
+        background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
+
+        background-color: gray(131234);
+        overflow-x: hidden;
+        margin: 0px;
+        position: relative;
+        min-height: 100%;
+        height: auto;
+    }
+    body {
+        background-image: url("https://c.wallhere.com/photos/a9/35/gray_white_spots_abstraction_faded-644375.jpg!d");
+
+        background-color: gray(131234);
+        overflow-x: hidden;
+        margin: 0px;
+        position: relative;
+        min-height: 100%;
+        height: auto;
+    }
+    .navbar{
+        padding: 25px;
+    }
+
+    
+    jumbotron{
+        background-color: red;
+    }
+</style>
 
 
