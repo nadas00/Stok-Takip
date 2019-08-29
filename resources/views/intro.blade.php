@@ -10,6 +10,7 @@ $agent = new Agent();
 
 
 
+
 <head>
 
     <title>Staj.Site</title>
@@ -44,7 +45,7 @@ $agent = new Agent();
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/products" >Ürüleri Görüntüle</a>
+                <a class="nav-link" href="/products" >Ürünleri Görüntüle</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/owners">Kullanıcıları Görüntüle</a>
@@ -178,11 +179,62 @@ $agent = new Agent();
 
 <div class="container">
 
+    @if($agent->isMobile()==0)
 
-    <div class="jumbotron">
-        <h1 style="font-style: italic">Staj.site Tanıtım Sayfası</h1>
-        <p style="font-style: italic">Ziyaret etmek istediğiniz sayfanın tanıtım kartındaki git butonuna tıklayabilirsiniz.</p>
-    </div>
+
+            <div style="vertical-align: top;" class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+
+                    <div class="front jumbotron">
+
+                        <h1 style="color: black; font-style: italic; align: center" >Staj.site Tanıtım Sayfası</h1>
+                        <p style=" color: black;font-style: italic; text-shadow: 0px 1px 1px rgba(152, 150, 150, 1);">Ziyaret etmek istediğiniz sayfanın tanıtım kartındaki git butonuna tıklayabilirsiniz.</p>
+
+                        <button  style="display: none" onclick="scrollWin()" >Click me to scroll vertically!</button>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+        <style>
+
+            /* entire container, keeps perspective */
+            .flip-container {
+                perspective: 1000px;
+            }
+            /* flip the pane when hovered */
+            .flip-container:hover .flipper, .flip-container.hover .flipper {
+
+                transform:    rotateX(-12deg);
+
+            }
+
+
+            /* flip speed goes here */
+            .flipper {
+                transition: 0.6s;
+                transform-style: preserve-3d;
+
+                position: relative;
+            }
+
+
+
+
+
+
+        </style>
+    @endif
+
+
+
+
 
     <div class="card-deck ">
         <div class="card ">
@@ -195,7 +247,7 @@ $agent = new Agent();
                     yapılabilir. Bu işlemler için kullanıcı girişi gereklidir. </p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block" onclick="window.location.href='/products' ">Git</button></small>
+                <small class="text-muted"><button class=" btn btn-secondary btn-block" onclick="window.location.href='/products' ">Git</button></small>
             </div>
         </div>
         <div class="card">
@@ -205,17 +257,17 @@ $agent = new Agent();
                 <p class="card-text">Bu bölümde kayıt edilen kullanıcılar listelenir. Kullanıcı ismi ve kullanıcının profil tanımını buradan öğrenebilirsiniz.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button class=" btn btn-secondary btn-block" onclick="window.location.href='/owners'" >Git</button></small>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Kullanıcıları Görüntüle</h5>
+                <h5 class="card-title">İlişkileri Görüntüle</h5>
                 <img class="card-img-top" src="https://i.hizliresim.com/lQ41bJ.jpg"  >
-                <p class="card-text">Bu bölümde kayıt edilen kullanıcılar listelenir. Kullanıcı ismi ve kullanıcının profil tanımını buradan öğrenebilirsiniz.</p>
+                <p class="card-text">Bu bölümde kullanıcı isimleri ve o kullanıcıya ait stokta olan ürünler listelenir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button onclick="window.location.href='/match' " class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
 
@@ -227,13 +279,13 @@ $agent = new Agent();
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Ürün Ekle</h5>
-                <img class="card-img-top" src="https://i.hizliresim.com/QPyMLy.jpg" alt="Card image cap">
+                <img  class="card-img-top" src="https://i.hizliresim.com/QPyMLy.jpg" alt="Card image cap">
 
 
                 <p class="card-text">Bu sayfada ürün kaydı için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button  onclick="window.location.href='/owners/create' "  class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
         <div class="card">
@@ -245,7 +297,7 @@ $agent = new Agent();
                 <p class="card-text">By sayfada kullanıcı kaydı için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
         <div class="card">
@@ -257,7 +309,7 @@ $agent = new Agent();
                 <p class="card-text">Bu sayfada kullanıcı ve stok eşleştirmesi için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-outline-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
 
@@ -334,6 +386,7 @@ $agent = new Agent();
     .jumbotron{
         background-color: white;
         box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+
     }
     .cards-list {
         z-index: 0;
@@ -372,6 +425,7 @@ $agent = new Agent();
         transform: scale(0.9, 0.9);
         box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
         -5px -5px 30px 15px rgba(0,0,0,0.22);
+
     }
 
 
@@ -388,9 +442,9 @@ $agent = new Agent();
             flex-direction: column;
         }
     }
- h5{
-    font-style: italic;
-}
+    h5{
+        font-style: italic;
+    }
 
     /*
      .card {
@@ -409,4 +463,11 @@ $agent = new Agent();
      */
 </style>
 
+<script>
+
+
+    function scrollWin() {
+        window.scrollBy(0, 300);
+    }
+</script>
 
