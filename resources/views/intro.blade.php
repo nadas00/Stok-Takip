@@ -303,7 +303,7 @@ $agent = new Agent();
                 <p class="card-text">Bu sayfada ürün kaydı için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button  onclick="window.location.href='/owners/create' "  class=" btn btn-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button  onclick="window.location.href='/products/create' "  class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
         <div class="card">
@@ -315,7 +315,7 @@ $agent = new Agent();
                 <p class="card-text">By sayfada kullanıcı kaydı için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button onclick="window.location.href='/owners/create' "  class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
         <div class="card">
@@ -327,7 +327,7 @@ $agent = new Agent();
                 <p class="card-text">Bu sayfada kullanıcı ve stok eşleştirmesi için bir form sayfası gösterilir.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button class=" btn btn-secondary btn-block">Git</button></small>
+                <small class="text-muted"><button onclick="window.location.href='/match/create' "  class=" btn btn-secondary btn-block">Git</button></small>
             </div>
         </div>
 
