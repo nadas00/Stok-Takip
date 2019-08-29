@@ -181,6 +181,22 @@ $agent = new Agent();
 
     @if($agent->isMobile()==0)
 
+        <style>
+
+            .flip-container:hover {
+                transform: scale(0.92, 0.92);
+
+            }
+
+
+            .flip-container {
+
+
+                cursor: pointer;
+                transition: 4s;
+            }
+        </style>
+
 
             <div style="vertical-align: top;" class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
@@ -218,7 +234,7 @@ $agent = new Agent();
 
             /* flip speed goes here */
             .flipper {
-                transition: 0.6s;
+                transition: 0.7s;
                 transform-style: preserve-3d;
 
                 position: relative;
@@ -425,6 +441,7 @@ $agent = new Agent();
         transform: scale(0.9, 0.9);
         box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
         -5px -5px 30px 15px rgba(0,0,0,0.22);
+
 
     }
 

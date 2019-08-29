@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/intro.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="216" lean-forward="true" selection-end-line="473" />
+            <state relative-caret-position="428">
+              <caret line="443" lean-forward="true" selection-start-line="443" selection-end-line="443" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -456,7 +456,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254441000" />
+    <option name="totallyTimeSpent" value="255210000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -830,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/intro.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="216" lean-forward="true" selection-end-line="473" />
+        <state relative-caret-position="428">
+          <caret line="443" lean-forward="true" selection-start-line="443" selection-end-line="443" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
