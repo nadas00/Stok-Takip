@@ -186,6 +186,8 @@ $agent = new Agent();
             .flip-container:hover {
                 transform: scale(0.92, 0.92);
 
+
+
             }
 
 
@@ -193,7 +195,7 @@ $agent = new Agent();
 
 
                 cursor: pointer;
-                transition: 4s;
+                transition: 0.6s;
             }
         </style>
 
@@ -234,7 +236,7 @@ $agent = new Agent();
 
             /* flip speed goes here */
             .flipper {
-                transition: 0.7s;
+                transition: 0.4s;
                 transform-style: preserve-3d;
 
                 position: relative;
