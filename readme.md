@@ -3,11 +3,7 @@
 <blockquote>
 <p class="has-line-data" data-line-start="5" data-line-end="6">Stok takip uygulaması mySQL bağlantılı, mobile-ready, Laravel Framework’ü kullanılarak, PHP, JS yazılım dilleri aracılığıyla tasarlanmıştır.</p>
 </blockquote>
-<ul>
-<li class="has-line-data" data-line-start="7" data-line-end="8">Type some Markdown on the left</li>
-<li class="has-line-data" data-line-start="8" data-line-end="9">See HTML in the right</li>
-<li class="has-line-data" data-line-start="9" data-line-end="11">Magic</li>
-</ul>
+ 
 <h1 class="code-line" data-line-start=11 data-line-end=12 ><a id="erikler_11"></a>İçerikler</h1>
 <ul>
 <li class="has-line-data" data-line-start="13" data-line-end="14">Ürün kaydetme</li>
