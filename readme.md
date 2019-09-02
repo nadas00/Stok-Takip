@@ -1,5 +1,5 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Stok_Takip_Uygulamas_0"></a>Stok Takip Uygulaması</h1>
-<p class="has-line-data" data-line-start="2" data-line-end="3"><a href="https://nodesource.com/products/nsolid"><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="N|Solid"></a></p>
+ 
 <blockquote>
 <p class="has-line-data" data-line-start="5" data-line-end="6">Stok takip uygulaması mySQL bağlantılı, mobile-ready, Laravel Framework’ü kullanılarak, PHP, JS yazılım dilleri aracılığıyla tasarlanmıştır.</p>
 </blockquote>
