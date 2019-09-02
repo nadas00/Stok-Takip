@@ -3,7 +3,9 @@
 <blockquote>
 <p class="has-line-data" data-line-start="5" data-line-end="6">Stok takip uygulaması mySQL bağlantılı, mobile-ready, Laravel Framework’ü kullanılarak, PHP, JS yazılım dilleri aracılığıyla tasarlanmıştır.</p>
 </blockquote>
- 
+
+<h1 class="code-line" data-line-start=2 data-line-end=3 ><a id="Ekran_Grntleri_2"></a>Ekran Görüntüleri</h1> <ul> <li class="has-line-data" data-line-start="4" data-line-end="5">Masaüstü ve mobil görünümde bazı sayfaların görünüm örnekleri</li> </ul> <p class="has-line-data" data-line-start="7" data-line-end="10"><a href="https://nodesource.com/products/nsolid"><img src="https://i.hizliresim.com/lQNqWE.png" alt="N|Solid"></a><br> <a href="https://nodesource.com/products/nsolid"><img src="https://i.hizliresim.com/2Oo6EN.png" alt="N|Solid"></a><br> <a href="https://nodesource.com/products/nsolid"><img src="https://i.hizliresim.com/1pZ6GG.png" alt="N|Solid"></a></p>
+
 <h1 class="code-line" data-line-start=11 data-line-end=12 ><a id="erikler_11"></a>İçerikler</h1>
 <ul>
 <li class="has-line-data" data-line-start="13" data-line-end="14">Ürün kaydetme</li>
@@ -38,3 +40,5 @@
 <li class="has-line-data" data-line-start="41" data-line-end="42">Tekil kullanıcıya ait stok bilgileri listelenmesi</li>
 <li class="has-line-data" data-line-start="42" data-line-end="43">Stok düşüren ve arttıran kullanıcıları tutan log sistemi</li>
 </ul>
+
+ 
