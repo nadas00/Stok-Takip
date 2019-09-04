@@ -5,8 +5,9 @@ $agent = new Agent();
 ?>
 
 @section('content')
-
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     {{--  BU ALAN EKLENMİŞ KULLANICILARI GÖSTEREN BİR TABLO İÇERİR --}}
 
     <div id="OwnerEkleButonu">
@@ -62,7 +63,7 @@ $agent = new Agent();
                         <th scope="col">id</th>
                         <th scope="col">Kullanıcı adı</th>
                         <th scope="col">Profil adı</th>
-                        <th scope="col">İşlem</th>
+                        <th style="text-align: right; padding-right: 4rem" scope="col">İşlem</th>
                     </tr>
 
                     </thead>
@@ -87,7 +88,11 @@ $agent = new Agent();
                             <td style=" word-break: break-all;">{{$owner->profil}}</td>
 
 
-                            <td><a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a></td>
+                            <td style="text-align: right; padding-right: 3rem">
+                                <a href="{{ url('/owners/delete/'.$owner->id)}}" class="btn btn-danger" role="button">Sil</a>
+                                <a  href="{{ url('/owners/items/'.$owner->id)}}"  class="btn btn-success" role="button">Ürünlerini Listele</a>
+
+                            </td>
                         </tr>
 
                     @endforeach

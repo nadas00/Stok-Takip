@@ -43,7 +43,7 @@
 </blockquote>
 <h3 class="code-line" data-line-start=39 data-line-end=40 ><a id="Yaplacaklar_39"></a>Yapılacaklar</h3>
 <ul>
-<li class="has-line-data" data-line-start="41" data-line-end="42">Tekil kullanıcıya ait stok bilgileri listelenmesi</li>
+<li class="has-line-data" data-line-start="41" data-line-end="42">Tekil kullanıcıya ait stok bilgileri listelenmesi √</li>
 <li class="has-line-data" data-line-start="42" data-line-end="43">Stok düşüren ve arttıran kullanıcıları tutan log sistemi</li>
 </ul>
 

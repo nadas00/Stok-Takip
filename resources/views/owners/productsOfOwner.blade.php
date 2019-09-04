@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Auth;
                     <div class="col-sm-12 ">
 
                         <div class="  text-center">
-                            <h1>Kayıt Yok</h1>
+                            <h1>Bu kullanıcıya ait ürün kaydı yok!</h1>
                             <div class="four_zero_four_bg">
 
 
@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Auth;
 
 
         <div class="topic" id="topic">
-            <h3 id="productsSayfaBaslik">Kaydedilen Ürünler</h3>
+            <h3 id="productsSayfaBaslik">{{$ownerName}}</h3>
         </div>
 
         <div class="content" id="content">
@@ -91,7 +91,7 @@ use Illuminate\Support\Facades\Auth;
 
 
                     <?php $sıra = 1 ?>
-                    @foreach($products as $product)
+                    @foreach($productsOfOwner as $product)
 
                         <tr
 
@@ -154,7 +154,7 @@ use Illuminate\Support\Facades\Auth;
                             width: 20px;
                             height: 20px;
                         } .squareGreen {
-                                                      border-radius: 40px;
+                              border-radius: 40px;
                               background: green;
                               width: 20px;
                               height: 20px;
@@ -243,7 +243,7 @@ use Illuminate\Support\Facades\Auth;
 
 
                     <?php $sıra = 1 ?>
-                    @foreach($products as $product)
+                    @foreach($productsOfOwner as $product)
 
                         <tr>
                             <th scope="row">{{$sıra++}} </th>
@@ -483,7 +483,7 @@ use Illuminate\Support\Facades\Auth;
         }
 
 
- </script>
+    </script>
 
 
 

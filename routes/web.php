@@ -201,3 +201,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
+Route::get('/owners/items/{id}', function ($id) {
+    $productsOfOwner=  DB::table('products')->where('owner_id', '=', $id)->get();
+    $ownerName=  '"'.DB::table('owners')->where('id', '=', $id)->get()->first()->ownerNameVar.'"'." Kullanıcısına Ait Ürünler";
+    return view("owners.productsOfOwner",compact('productsOfOwner',$productsOfOwner,'ownerName',$ownerName));
+});
